@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Customer.cs" />
+    <Compile Include="Impl\Employee.cs" />
+    <Compile Include="Impl\Enums.cs" />
+    <Compile Include="Impl\Item.cs" />
     <Compile Include="Impl\Ledger.cs" />
     <Compile Include="Impl\Transaction.cs" />
     <Compile Include="Impl\TransactionLine.cs" />
