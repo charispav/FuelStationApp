@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStationApp", "FuelStationApp\FuelStationApp.csproj", "{0F744FA5-C56D-4AB5-A803-3028225F1AFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F744FA5-C56D-4AB5-A803-3028225F1AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F744FA5-C56D-4AB5-A803-3028225F1AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F744FA5-C56D-4AB5-A803-3028225F1AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F744FA5-C56D-4AB5-A803-3028225F1AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E18C30C3-D4FA-40E8-B358-ED013CCBA3F9}
+	EndGlobalSection
+EndGlobal
