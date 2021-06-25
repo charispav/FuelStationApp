@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace FuelStationApp {
-    public partial class Form1 : DevExpress.XtraEditors.XtraForm {
-        public Form1() {
+    public partial class MainForm : DevExpress.XtraEditors.XtraForm {
+        public MainForm() {
             InitializeComponent();
         }
     }
