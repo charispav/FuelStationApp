@@ -19,6 +19,8 @@ namespace FuelStationApp.Impl {
 
         public Transaction() {
             
+
+
         }
 
     }

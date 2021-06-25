@@ -13,8 +13,9 @@ namespace FuelStationApp.Impl {
         public decimal Expenses { get; set; }
         public decimal Total { get; set; }
 
-        public Ledger() {
-
+        public Ledger(Guid id, DateTime dateFrom, DateTime dateTo
+            , decimal income, decimal expenses, decimal total) {
+            (ID, DateFrom, DateTo,Income,Expenses,Total) = (id,dateFrom, dateTo, income, expenses, total);
         }
 
        
