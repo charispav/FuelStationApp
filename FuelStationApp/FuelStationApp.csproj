@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Customer.cs" />
+    <Compile Include="Impl\Employee.cs" />
+    <Compile Include="Impl\Enums.cs" />
+    <Compile Include="Impl\Item.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
