@@ -55,21 +55,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Customer.cs" />
+    <Compile Include="Impl\Dates.cs" />
     <Compile Include="Impl\Employee.cs" />
+    <Compile Include="Impl\Entity.cs" />
     <Compile Include="Impl\Enums.cs" />
+    <Compile Include="Impl\IDates.cs" />
+    <Compile Include="Impl\IEntity.cs" />
+    <Compile Include="Impl\IPerson.cs" />
     <Compile Include="Impl\Item.cs" />
     <Compile Include="Impl\Ledger.cs" />
+    <Compile Include="Impl\Person.cs" />
     <Compile Include="Impl\Transaction.cs" />
     <Compile Include="Impl\TransactionLine.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="WUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="WUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

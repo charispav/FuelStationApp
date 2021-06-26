@@ -8,20 +8,15 @@ namespace FuelStationApp.Impl {
 
 
     public class Customer {
-        public Guid ID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+
+        public IPerson _person;
         public int CardNumber { get; set; }
       
         public Customer() { }
-        public Customer(string name, string surname, int cardnumber) {
+        public Customer(IPerson person, int cardnumber) {
 
-            ID = Guid.NewGuid();
-            Name = name;
-            Surname = surname;
-            CardNumber = cardnumber;
+            (_person, CardNumber) = (person, cardnumber);
           
-
         }
     }
 }

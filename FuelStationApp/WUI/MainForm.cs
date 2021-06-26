@@ -9,8 +9,11 @@ using System.Windows.Forms;
 
 namespace FuelStationApp {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm {
+
+
         public MainForm() {
             InitializeComponent();
         }
+
     }
 }

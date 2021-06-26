@@ -5,19 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FuelStationApp.Impl {
-    public class Ledger { 
-        public Guid ID { get; set; }
-        public DateTime DateFrom { get; set; }
-        public DateTime DateTo { get; set; }
+    public class Ledger {
+
+        public IEntity _entity;
+        public IDates _dates;
         public decimal Income { get; set; }
         public decimal Expenses { get; set; }
         public decimal Total { get; set; }
 
-        public Ledger(Guid id, DateTime dateFrom, DateTime dateTo
-            , decimal income, decimal expenses, decimal total) {
-            (ID, DateFrom, DateTo,Income,Expenses,Total) = (id,dateFrom, dateTo, income, expenses, total);
+        public Ledger(IEntity entity, IDates dates, decimal income, decimal expenses, decimal total) {
+            (_entity,_dates, Income, Expenses, Total) = 
+             (entity,dates, income, expenses, total);
         }
 
-       
     }
 }

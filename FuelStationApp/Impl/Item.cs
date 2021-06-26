@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 //using static FuelStationApp.Impl.Enums;
 
 namespace FuelStationApp.Impl {
-    class Item {
+    public class Item {
         public Guid ID { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
