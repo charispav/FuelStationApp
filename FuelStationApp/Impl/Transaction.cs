@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 namespace FuelStationApp.Impl {
     public class Transaction {
 
-        
-        public Guid ID { get; set; }
+        public IEntity _entity;
+  
         public DateTime Date { get; set; }
 
         public Guid CustomerID { get; set; }
         public decimal DiscountValue { get; set; }
         public decimal TotalValue { get; set; }
 
-        public List<TransactionLine> TransactionLines { get; set; }
+      
 
-        public Transaction() {
-            
+        public Transaction( IEntity entity, DateTime date, Guid customerID, decimal discountValue, decimal totalValue) {
 
+            (_entity, Date, CustomerID, DiscountValue, TotalValue) =
+          (entity, date, customerID, discountValue, totalValue);
 
         }
 
