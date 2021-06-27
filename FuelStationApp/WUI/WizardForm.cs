@@ -72,7 +72,9 @@ namespace FuelStationApp.WUI {
         public bool SqlConnect() {
 
             //SqlConnection = new SqlConnection(Convert.ToString(ctrlConnectionString.EditValue));
-            SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStationDB;Integrated Security=True;");
+            // SqlConnection = new SqlConnection("data source=LAPTOP-VB1FTM5C;initial catalog=FuelStation;trusted_connection=true;");
+            // SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStationDB;Integrated Security=True;");
+            SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStation;Integrated Security=True;");
             try {
                 SqlConnection.Open();
             }
@@ -92,6 +94,14 @@ namespace FuelStationApp.WUI {
         #endregion
 
         private void WizardForm_Load(object sender, EventArgs e) {
+
+        }
+
+        private void welcomeWizardPage1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void ctrlConnectionString_EditValueChanged(object sender, EventArgs e) {
 
         }
     }

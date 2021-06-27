@@ -149,6 +149,7 @@
   <ItemGroup>
     <Content Include="Custom-Icon-Design-Pretty-Office-8-Gas-pump.ico" />
     <Content Include="Queries\AccountCredentialsSelect.sql" />
+    <Content Include="Queries\DeleteCustomer.sql" />
     <None Include="Resources\add_16x162.png" />
     <None Include="Resources\add_32x322.png" />
     <None Include="Resources\delete_16x16.png" />

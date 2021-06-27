@@ -208,5 +208,14 @@ namespace FuelStationApp {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static string DeleteCustomer {
+            get {
+                return ResourceManager.GetString("DeleteCustomer", resourceCulture);
+            }
+        }
+
+     
+       
     }
 }

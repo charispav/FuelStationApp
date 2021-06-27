@@ -14,5 +14,9 @@ namespace FuelStationApp.WUI {
         public ViewForm() {
             InitializeComponent();
         }
+
+        private void ViewForm_Load(object sender, EventArgs e) {
+
+        }
     }
 }

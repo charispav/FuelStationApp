@@ -25,12 +25,14 @@ namespace FuelStationApp {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -53,7 +55,6 @@ namespace FuelStationApp {
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Description = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).BeginInit();
@@ -91,17 +92,18 @@ namespace FuelStationApp {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
+            this.ribbonControl1.Size = new System.Drawing.Size(996, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Add Transaction";
+            this.barButtonItem2.Caption = "Update";
             this.barButtonItem2.Id = 9;
             this.barButtonItem2.ImageOptions.Image = global::FuelStationApp.Resources.add_16x161;
             this.barButtonItem2.ImageOptions.LargeImage = global::FuelStationApp.Resources.add_32x321;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -119,6 +121,7 @@ namespace FuelStationApp {
             this.barButtonItem4.ImageOptions.Image = global::FuelStationApp.Resources.delete_16x16;
             this.barButtonItem4.ImageOptions.LargeImage = global::FuelStationApp.Resources.delete_32x32;
             this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick_1);
             // 
             // barButtonItem3
             // 
@@ -128,6 +131,12 @@ namespace FuelStationApp {
             this.barButtonItem3.ImageOptions.LargeImage = global::FuelStationApp.Resources.add_32x322;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "barButtonItem5";
+            this.barButtonItem5.Id = 14;
+            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // ribbonPage6
             // 
@@ -200,10 +209,10 @@ namespace FuelStationApp {
             // 
             // ribbonStatusBar2
             // 
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 559);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 565);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 30);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 24);
             // 
             // ribbonPage3
             // 
@@ -222,6 +231,10 @@ namespace FuelStationApp {
             // 
             // gridControl1
             // 
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(171, 241);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.ribbonControl1;
@@ -288,12 +301,6 @@ namespace FuelStationApp {
             this.Description.VisibleIndex = 1;
             this.Description.Width = 94;
             // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 14;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
             // MainForm
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -304,7 +311,7 @@ namespace FuelStationApp {
             this.Appearance.Options.UseBorderColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.gridControl1);
