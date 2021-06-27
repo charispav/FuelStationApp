@@ -20,8 +20,8 @@ namespace FuelStationApp {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             WizardForm wizardForm = new WizardForm();
-            //Application.Run(wizardForm);
-            //if (wizardForm.DialogResultSpecific == DialogResult.OK)
+            Application.Run(wizardForm);
+            if (wizardForm.DialogResultSpecific == DialogResult.OK)
                 Application.Run(wizardForm.StartApplication());
         }
     }

@@ -165,6 +165,7 @@ namespace FuelStationApp.WUI {
             this.Name = "WizardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initialization";
+            this.Load += new System.EventHandler(this.WizardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
             this.wizardControl1.ResumeLayout(false);
             this.welcomeWizardPage1.ResumeLayout(false);

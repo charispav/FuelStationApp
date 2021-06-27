@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuelStationDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuelStationDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Impl\Customer.cs" />
     <Compile Include="Impl\Dates.cs" />
     <Compile Include="Impl\Employee.cs" />
@@ -91,6 +96,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WUI\ViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\ViewForm.Designer.cs">
+      <DependentUpon>ViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\WizardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,10 +117,24 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="WUI\ViewForm.resx">
+      <DependentUpon>ViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WUI\WizardForm.resx">
       <DependentUpon>WizardForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="FuelStationDBDataSet.xsc">
+      <DependentUpon>FuelStationDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FuelStationDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FuelStationDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FuelStationDBDataSet.xss">
+      <DependentUpon>FuelStationDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +149,8 @@
   <ItemGroup>
     <Content Include="Custom-Icon-Design-Pretty-Office-8-Gas-pump.ico" />
     <Content Include="Queries\AccountCredentialsSelect.sql" />
+    <None Include="Resources\add_16x162.png" />
+    <None Include="Resources\add_32x322.png" />
     <None Include="Resources\delete_16x16.png" />
     <None Include="Resources\delete_32x32.png" />
     <None Include="Resources\edit_16x16.png" />

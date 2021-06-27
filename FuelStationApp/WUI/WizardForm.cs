@@ -71,7 +71,8 @@ namespace FuelStationApp.WUI {
 
         public bool SqlConnect() {
 
-            SqlConnection = new SqlConnection(Convert.ToString(ctrlConnectionString.EditValue));
+            //SqlConnection = new SqlConnection(Convert.ToString(ctrlConnectionString.EditValue));
+            SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStationDB;Integrated Security=True;");
             try {
                 SqlConnection.Open();
             }
@@ -89,5 +90,9 @@ namespace FuelStationApp.WUI {
         }
 
         #endregion
+
+        private void WizardForm_Load(object sender, EventArgs e) {
+
+        }
     }
 }
