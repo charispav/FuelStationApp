@@ -26,6 +26,10 @@ namespace FuelStationApp {
         private void InitializeComponent() {
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -39,6 +43,8 @@ namespace FuelStationApp {
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -55,9 +61,13 @@ namespace FuelStationApp {
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.ribbonControl1.SearchEditItem});
+            this.ribbonControl1.SearchEditItem,
+            this.barButtonItem2,
+            this.barButtonItem1,
+            this.barButtonItem3,
+            this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 13;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage6,
@@ -71,17 +81,52 @@ namespace FuelStationApp {
             this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Add Transaction";
+            this.barButtonItem2.Id = 9;
+            this.barButtonItem2.ImageOptions.Image = global::FuelStationApp.Resources.add_16x161;
+            this.barButtonItem2.ImageOptions.LargeImage = global::FuelStationApp.Resources.add_32x321;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Show All Transactions";
+            this.barButtonItem1.Id = 10;
+            this.barButtonItem1.ImageOptions.Image = global::FuelStationApp.Resources.showtabularformpivottable_16x16;
+            this.barButtonItem1.ImageOptions.LargeImage = global::FuelStationApp.Resources.showtabularformpivottable_32x32;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Edit Transaction";
+            this.barButtonItem3.Id = 11;
+            this.barButtonItem3.ImageOptions.Image = global::FuelStationApp.Resources.edit_16x16;
+            this.barButtonItem3.ImageOptions.LargeImage = global::FuelStationApp.Resources.edit_32x32;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Delete Transaction";
+            this.barButtonItem4.Id = 12;
+            this.barButtonItem4.ImageOptions.Image = global::FuelStationApp.Resources.delete_16x16;
+            this.barButtonItem4.ImageOptions.LargeImage = global::FuelStationApp.Resources.delete_32x32;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // ribbonPage6
             // 
             this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup5,
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage6.Name = "ribbonPage6";
             this.ribbonPage6.Text = "Transactions";
             // 
             // ribbonPageGroup5
             // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "View";
             // 
             // ribbonPage4
             // 
@@ -152,6 +197,19 @@ namespace FuelStationApp {
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Modify";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Delete";
+            // 
             // MainForm
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -201,6 +259,12 @@ namespace FuelStationApp {
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }
 

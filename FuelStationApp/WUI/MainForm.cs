@@ -11,14 +11,14 @@ using System.Windows.Forms;
 namespace FuelStationApp {
     public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm {
 
-        private SqlConnection _SqlConnection;
-        private DataSet _MasterData = new DataSet();
-        public MainForm() {
+        public SqlConnection _SqlConnection { get; set; }
+        private DataSet MasterData = new DataSet();
+        public MainForm(SqlConnection sqlConnection) {
+            _SqlConnection = sqlConnection;
             InitializeComponent();
         }
 
        
-
         private void MainForm_Load(object sender, EventArgs e) {
 
         }
