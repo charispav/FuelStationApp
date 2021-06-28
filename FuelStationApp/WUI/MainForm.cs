@@ -31,11 +31,23 @@ namespace FuelStationApp {
 
         }
 
-        private void GetData() {
+        private void GetCustomerData() {
 
             try {
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [Name],[Surname] FROM CUSTOMERS", _SqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[Name],[Surname] FROM CUSTOMERS", _SqlConnection);
+                adapter.Fill(MasterData);
+
+            }
+            catch (Exception ex) {
+
+            }
+        }
+        private void GetTransactionData() {
+
+            try {
+
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[TotalValue] FROM [Transaction]", _SqlConnection);
                 adapter.Fill(MasterData);
 
             }
@@ -43,38 +55,31 @@ namespace FuelStationApp {
                
             }
         }
+
+
         private void DeleteCustomer() {
 
           try {
 
 
-                
-
-               
-                object CellValue = gridView1.GetFocusedRowCellValue("Name");
-                 string _name = CellValue.ToString();
-                MessageBox.Show(_name);
-                SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Customers WHERE Name = '" + _name + "';", _SqlConnection);
+                object CellValue = gridView1.GetFocusedRowCellValue("ID");
+                Guid _id =(Guid) CellValue;
+                MessageBox.Show(_id.ToString());
+                SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Customers WHERE ID = '" + _id + "';", _SqlConnection);
                 
                 adapter.Fill(MasterData);
-                gridView1.RefreshData();
-
-
-
 
             }
            catch (Exception ex) {
 
           }
-          
-
-
+           // gridView1.RefreshData();
 
         }
         private void UpdateCustomer() {
 
             try {
-
+                
                 object CellValue = gridView1.GetFocusedRowCellValue("Name");
                 object CellValue2 = gridView1.GetFocusedRowCellValue("Surname");
                 string _name = CellValue.ToString();
@@ -95,7 +100,7 @@ namespace FuelStationApp {
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            GetData();
+            GetTransactionData();
             gridControl1.DataSource = MasterData.Tables[0];
             
         }
@@ -104,9 +109,10 @@ namespace FuelStationApp {
         }
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            //gridControl2.MainView.CloseEditor();
-            
-           //gridView2.vis
+            gridControl1.MainView = gridView2;
+            GetCustomerData();
+            gridControl1.DataSource = MasterData.Tables[0];
+            //gridView2.vis
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {

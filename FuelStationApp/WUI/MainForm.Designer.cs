@@ -50,11 +50,13 @@ namespace FuelStationApp {
             this.fuelStationDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Code = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Description = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.IDcustomer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Surname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).BeginInit();
@@ -92,7 +94,7 @@ namespace FuelStationApp {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(996, 158);
+            this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
@@ -209,10 +211,10 @@ namespace FuelStationApp {
             // 
             // ribbonStatusBar2
             // 
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 559);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 24);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 30);
             // 
             // ribbonPage3
             // 
@@ -248,58 +250,76 @@ namespace FuelStationApp {
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colName,
-            this.colSurname});
+            this.ID,
+            this.TotalValue});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            // 
-            // colName
-            // 
-            this.colName.Caption = "Name";
-            this.colName.FieldName = "Name";
-            this.colName.MinWidth = 25;
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
-            this.colName.Width = 94;
-            // 
-            // colSurname
-            // 
-            this.colSurname.Caption = "Surname";
-            this.colSurname.FieldName = "Surname";
-            this.colSurname.MinWidth = 25;
-            this.colSurname.Name = "colSurname";
-            this.colSurname.Visible = true;
-            this.colSurname.VisibleIndex = 1;
-            this.colSurname.Width = 94;
             // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Code,
-            this.Description});
+            this.IDcustomer,
+            this.Name,
+            this.Surname,
+            this.CardNumber});
             this.gridView2.GridControl = this.gridControl1;
             this.gridView2.Name = "gridView2";
             // 
-            // Code
+            // ID
             // 
-            this.Code.Caption = "Code";
-            this.Code.FieldName = "Code";
-            this.Code.MinWidth = 25;
-            this.Code.Name = "Code";
-            this.Code.Visible = true;
-            this.Code.VisibleIndex = 0;
-            this.Code.Width = 94;
+            this.ID.Caption = "ID";
+            this.ID.FieldName = "ID";
+            this.ID.MinWidth = 25;
+            this.ID.Name = "ID";
+            this.ID.Width = 94;
             // 
-            // Description
+            // TotalValue
             // 
-            this.Description.Caption = "Description";
-            this.Description.FieldName = "Description";
-            this.Description.MinWidth = 25;
-            this.Description.Name = "Description";
-            this.Description.Visible = true;
-            this.Description.VisibleIndex = 1;
-            this.Description.Width = 94;
+            this.TotalValue.Caption = "Total Value";
+            this.TotalValue.FieldName = "TotalValue";
+            this.TotalValue.MinWidth = 25;
+            this.TotalValue.Name = "TotalValue";
+            this.TotalValue.Visible = true;
+            this.TotalValue.VisibleIndex = 0;
+            this.TotalValue.Width = 94;
+            // 
+            // IDcustomer
+            // 
+            this.IDcustomer.Caption = "ID";
+            this.IDcustomer.FieldName = "IDcustomer";
+            this.IDcustomer.MinWidth = 25;
+            this.IDcustomer.Name = "IDcustomer";
+            this.IDcustomer.Width = 94;
+            // 
+            // Name
+            // 
+            this.Name.Caption = "Name";
+            this.Name.FieldName = "Name";
+            this.Name.MinWidth = 25;
+            this.Name.Name = "Name";
+            this.Name.Visible = true;
+            this.Name.VisibleIndex = 0;
+            this.Name.Width = 94;
+            // 
+            // Surname
+            // 
+            this.Surname.Caption = "Surname";
+            this.Surname.FieldName = "Surname";
+            this.Surname.MinWidth = 25;
+            this.Surname.Name = "Surname";
+            this.Surname.Visible = true;
+            this.Surname.VisibleIndex = 1;
+            this.Surname.Width = 94;
+            // 
+            // CardNumber
+            // 
+            this.CardNumber.Caption = "Card Number";
+            this.CardNumber.FieldName = "CardNumber";
+            this.CardNumber.MinWidth = 25;
+            this.CardNumber.Name = "CardNumber";
+            this.CardNumber.Visible = true;
+            this.CardNumber.VisibleIndex = 2;
+            this.CardNumber.Width = 94;
             // 
             // MainForm
             // 
@@ -311,7 +331,7 @@ namespace FuelStationApp {
             this.Appearance.Options.UseBorderColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.gridControl1);
@@ -321,7 +341,7 @@ namespace FuelStationApp {
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "MainForm";
+            //this.Name = "MainForm";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar2;
             this.Text = "Fuel Station Management Application";
@@ -361,13 +381,15 @@ namespace FuelStationApp {
         private System.Windows.Forms.BindingSource fuelStationDBDataSetBindingSource;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSurname;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn Code;
-        private DevExpress.XtraGrid.Columns.GridColumn Description;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraGrid.Columns.GridColumn ID;
+        private DevExpress.XtraGrid.Columns.GridColumn TotalValue;
+        private DevExpress.XtraGrid.Columns.GridColumn IDcustomer;
+        private DevExpress.XtraGrid.Columns.GridColumn Name;
+        private DevExpress.XtraGrid.Columns.GridColumn Surname;
+        private DevExpress.XtraGrid.Columns.GridColumn CardNumber;
     }
 }
 
