@@ -27,16 +27,44 @@ namespace FuelStationApp {
 
         }
 
-        private void ribbonControl1_Click(object sender, EventArgs e) {
+       
 
+        private void getTransactions_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            GetTransactionData();
+            gridControl1.DataSource = MasterData.Tables[0];
+        }
+
+        private void getAllItems_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+           //TODO: 
+        }
+       
+        private void getCustomers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            gridControl1.MainView = gridCustomers;
+            GetCustomerData();
+            gridControl1.DataSource = MasterData.Tables[0];
+
+            //gridControl1.Refresh();
+        }
+
+        private void saveCustomerChanges_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            UpdateCustomer();
+        }
+        private void deleteCustomer2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            DeleteCustomer();
+        }
+
+        private void AppendLog(string name, object message) {
+            // txtLog.AppendText(string.Format("{0}={1}{2}", name, message, Environment.NewLine));
         }
 
         private void GetCustomerData() {
 
             try {
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[Name],[Surname] FROM CUSTOMERS", _SqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[Name],[Surname],[CardNumber] FROM CUSTOMERS", _SqlConnection);
+
                 adapter.Fill(MasterData);
+               
 
             }
             catch (Exception ex) {
@@ -52,41 +80,41 @@ namespace FuelStationApp {
 
             }
             catch (Exception ex) {
-               
+
             }
         }
 
 
         private void DeleteCustomer() {
 
-          try {
+            try {
 
 
-                object CellValue = gridView1.GetFocusedRowCellValue("ID");
-                Guid _id =(Guid) CellValue;
+                object CellValue = gridTransactions.GetFocusedRowCellValue("ID");
+                Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Customers WHERE ID = '" + _id + "';", _SqlConnection);
-                
+
                 adapter.Fill(MasterData);
 
             }
-           catch (Exception ex) {
+            catch (Exception ex) {
 
-          }
-           // gridView1.RefreshData();
+            }
+            // gridView1.RefreshData();
 
         }
         private void UpdateCustomer() {
 
             try {
-                
-                object CellValue = gridView1.GetFocusedRowCellValue("Name");
-                object CellValue2 = gridView1.GetFocusedRowCellValue("Surname");
+
+                object CellValue = gridTransactions.GetFocusedRowCellValue("Name");
+                object CellValue2 = gridTransactions.GetFocusedRowCellValue("Surname");
                 string _name = CellValue.ToString();
                 string _surname = CellValue2.ToString();
                 MessageBox.Show(_surname);
-                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Customers SET Surname ='"+ _surname + "'  WHERE Name = '" + _name + "';", _SqlConnection);
-               
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Customers SET Surname ='" + _surname + "'  WHERE Name = '" + _name + "';", _SqlConnection);
+
                 adapter.Fill(MasterData);
 
             }
@@ -99,33 +127,5 @@ namespace FuelStationApp {
 
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            GetTransactionData();
-            gridControl1.DataSource = MasterData.Tables[0];
-            
-        }
-        private void AppendLog(string name, object message) {
-           // txtLog.AppendText(string.Format("{0}={1}{2}", name, message, Environment.NewLine));
-        }
-
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            gridControl1.MainView = gridView2;
-            GetCustomerData();
-            gridControl1.DataSource = MasterData.Tables[0];
-            //gridView2.vis
-        }
-
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-           DeleteCustomer();
-            //gridControl1.DataSource = MasterData.Tables[0];
-        }
-
-        private void barButtonItem4_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            DeleteCustomer();
-        }
-
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            UpdateCustomer();
-        }
     }
 }
