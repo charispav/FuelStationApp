@@ -27,20 +27,19 @@ namespace FuelStationApp {
         }
 
         private void getTransactions_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            
             GetTransactionData();
-            gridControl1.DataSource = MasterData.Tables[0];
         }
 
+      
+
         private void getAllItems_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-           //TODO: 
+            GetItemData();
         }
        
         private void getCustomers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            gridControl1.MainView = gridCustomers;
+            
             GetCustomerData();
-            gridControl1.DataSource = MasterData.Tables[0];
-
-            //gridControl1.Refresh();
         }
 
         private void saveCustomerChanges_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -55,7 +54,10 @@ namespace FuelStationApp {
         }
 
         private void GetCustomerData() {
+            //gridControl1.DataSource = null;
 
+            gridControl1.MainView = gridCustomers;
+            //gridControl1.DataSource = null;
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[Name],[Surname],[CardNumber] FROM CUSTOMERS", _SqlConnection);
@@ -66,6 +68,7 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.DataSource = MasterData.Tables[0];
         }
       /*  private void GetTransactionData() {
 
@@ -154,7 +157,8 @@ namespace FuelStationApp {
         }
         //GetEmployeeData
         private void GetEmployeeData() {
-
+           
+            gridControl1.MainView = gridEmployees;
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Name], [Surname], [DateStart], [DateEnd], [Salary] FROM [Employee]", _SqlConnection);
@@ -164,6 +168,7 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.DataSource = MasterData.Tables[0];
         }
         //DeleteEmployee
         private void DeleteEmployee() {
@@ -214,7 +219,7 @@ namespace FuelStationApp {
         }
         //GetItemData
         private void GetItemData() {
-
+            gridControl1.MainView = gridItems;
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Code], [Description], [ItemType], [Price], [Cost] FROM [Items]", _SqlConnection);
@@ -224,6 +229,7 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.DataSource = MasterData.Tables[0];
         }
         //DeleteItems
         private void DeleteItems() {
@@ -273,7 +279,7 @@ namespace FuelStationApp {
         }
         //GetTransactionData
         private void GetTransactionData() {
-
+            gridControl1.MainView = gridTransactions;
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Date], [CustomerID], [DiscountValue], [TotalValue] FROM [Transaction]", _SqlConnection);
@@ -283,6 +289,8 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.DataSource = MasterData.Tables[0];
+
         }
         //DeleteTransaction
         private void DeleteTransaction() {
@@ -401,6 +409,10 @@ namespace FuelStationApp {
                 UpdateCustomer();
                 e.Handled = true;
             }
+        }
+
+        private void getEmployees_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            GetEmployeeData();
         }
     }
 }

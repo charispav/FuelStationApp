@@ -244,6 +244,7 @@ namespace FuelStationApp {
             this.getEmployees.ImageOptions.Image = global::FuelStationApp.Resources.showallsubtotalsattoppivottable_16x162;
             this.getEmployees.ImageOptions.LargeImage = global::FuelStationApp.Resources.showallsubtotalsattoppivottable_32x322;
             this.getEmployees.Name = "getEmployees";
+            this.getEmployees.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.getEmployees_ItemClick);
             // 
             // addEmployee
             // 
