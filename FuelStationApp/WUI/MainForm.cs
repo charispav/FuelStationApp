@@ -309,7 +309,7 @@ namespace FuelStationApp {
             }
         }
         //UpdateTransaction
-        private void UpdateTransaction() {
+      /*  private void UpdateTransaction() {
 
             try {
 
@@ -336,7 +336,7 @@ namespace FuelStationApp {
 
             }
 
-        }
+        }*/
         //GetTransactionLineData
         private void GetTransactionLineData() {
 
@@ -365,6 +365,58 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+        }
+
+        //UpdateTransactionLine
+        private void UpdateTransactionLine() {
+
+            try {
+
+
+                object CellValueID = gridTransactionLine.GetFocusedRowCellValue("ID");
+                Guid _id = (Guid)CellValueID;
+                object CellValueQuantity = gridTransactionLine.GetFocusedRowCellValue("Quantity");
+                decimal _quantity = (decimal)CellValueQuantity;
+                object CellValueItemPrice = gridTransactionLine.GetFocusedRowCellValue("ItemPrice");
+                decimal _itemPrice = (decimal)CellValueItemPrice;
+
+
+
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE[TransactionLine] SET[Quantity] = " + _quantity + ",[ItemPrice] = " + _itemPrice + "WHERE ID = '" + _id + "'; ", _SqlConnection);
+
+                adapter.Fill(MasterData);
+
+            }
+            catch (Exception ex) {
+
+            }
+
+
+         
+        }
+        //UpdateTransaction
+        private void UpdateTransaction() {
+
+            try {
+
+
+                object CellValueTransactionId = gridTransactionLine.GetFocusedRowCellValue("TransactionId");
+                Guid _id = (Guid)CellValueTransactionId;
+
+
+                //  decimal _totalValue = (decimal)totalValue;
+
+                //decimal _discountValue = (decimal)discountValue;
+
+                //  SqlDataAdapter adapter = new SqlDataAdapter("UPDATE [Transaction] SET [TotalValue] = " + _totalValue + ", [DiscountValue] = " + _discountValue + " WHERE ID = '" + _id + "'; ", _SqlConnection);
+
+                //   adapter.Fill(MasterData);
+
+            }
+            catch (Exception ex) {
+
+            }
+
         }
         //GetLedgerData
         private void GetLedgerData() {

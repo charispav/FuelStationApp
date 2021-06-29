@@ -80,12 +80,17 @@ namespace FuelStationApp {
             this.fuelStationDBDataSet = new FuelStationApp.FuelStationDBDataSet();
             this.fuelStationDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDTransaction = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.DiscountValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CustomerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Surname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridTransactionLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDTransactionLine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TransactionID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,11 +98,6 @@ namespace FuelStationApp {
             this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ItemPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Value = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDTransaction = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DiscountValue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TotalValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridItems = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDItem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Code = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -124,11 +124,11 @@ namespace FuelStationApp {
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLedger)).BeginInit();
@@ -183,7 +183,7 @@ namespace FuelStationApp {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
+            this.ribbonControl1.Size = new System.Drawing.Size(996, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
             // 
             // addTransaction
@@ -548,10 +548,10 @@ namespace FuelStationApp {
             // 
             // ribbonStatusBar2
             // 
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 559);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 565);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 30);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 24);
             // 
             // ribbonPage3
             // 
@@ -572,21 +572,79 @@ namespace FuelStationApp {
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.gridControl1.Location = new System.Drawing.Point(0, 195);
-            this.gridControl1.MainView = this.gridTransactions;
+            this.gridControl1.Location = new System.Drawing.Point(0, 158);
+            this.gridControl1.MainView = this.gridTransactionLine;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDateEdit});
-            this.gridControl1.Size = new System.Drawing.Size(996, 364);
+            this.gridControl1.Size = new System.Drawing.Size(996, 407);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridTransactions,
             this.gridCustomers,
             this.gridTransactionLine,
-            this.gridTransactions,
             this.gridItems,
             this.gridEmployees,
             this.gridLedger});
+            // 
+            // gridTransactions
+            // 
+            this.gridTransactions.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.IDTransaction,
+            this.Date,
+            this.DiscountValue,
+            this.TotalValue});
+            this.gridTransactions.GridControl = this.gridControl1;
+            this.gridTransactions.Name = "gridTransactions";
+            // 
+            // IDTransaction
+            // 
+            this.IDTransaction.Caption = "ID";
+            this.IDTransaction.FieldName = "ID";
+            this.IDTransaction.MinWidth = 25;
+            this.IDTransaction.Name = "IDTransaction";
+            this.IDTransaction.Width = 94;
+            // 
+            // Date
+            // 
+            this.Date.Caption = "Date";
+            this.Date.ColumnEdit = this.repDateEdit;
+            this.Date.FieldName = "Date";
+            this.Date.MinWidth = 25;
+            this.Date.Name = "Date";
+            this.Date.Visible = true;
+            this.Date.VisibleIndex = 0;
+            this.Date.Width = 94;
+            // 
+            // repDateEdit
+            // 
+            this.repDateEdit.AutoHeight = false;
+            this.repDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateEdit.Name = "repDateEdit";
+            // 
+            // DiscountValue
+            // 
+            this.DiscountValue.Caption = "Discount Value";
+            this.DiscountValue.FieldName = "DiscountValue";
+            this.DiscountValue.MinWidth = 25;
+            this.DiscountValue.Name = "DiscountValue";
+            this.DiscountValue.Visible = true;
+            this.DiscountValue.VisibleIndex = 1;
+            this.DiscountValue.Width = 94;
+            // 
+            // TotalValue
+            // 
+            this.TotalValue.Caption = "Total Value";
+            this.TotalValue.FieldName = "TotalValue";
+            this.TotalValue.MinWidth = 25;
+            this.TotalValue.Name = "TotalValue";
+            this.TotalValue.Visible = true;
+            this.TotalValue.VisibleIndex = 2;
+            this.TotalValue.Width = 94;
             // 
             // gridCustomers
             // 
@@ -637,15 +695,6 @@ namespace FuelStationApp {
             this.CardNumber.Visible = true;
             this.CardNumber.VisibleIndex = 2;
             this.CardNumber.Width = 94;
-            // 
-            // repDateEdit
-            // 
-            this.repDateEdit.AutoHeight = false;
-            this.repDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repDateEdit.Name = "repDateEdit";
             // 
             // gridTransactionLine
             // 
@@ -712,55 +761,6 @@ namespace FuelStationApp {
             this.Value.Visible = true;
             this.Value.VisibleIndex = 2;
             this.Value.Width = 94;
-            // 
-            // gridTransactions
-            // 
-            this.gridTransactions.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDTransaction,
-            this.Date,
-            this.DiscountValue,
-            this.TotalValue});
-            this.gridTransactions.GridControl = this.gridControl1;
-            this.gridTransactions.Name = "gridTransactions";
-            // 
-            // IDTransaction
-            // 
-            this.IDTransaction.Caption = "ID";
-            this.IDTransaction.FieldName = "ID";
-            this.IDTransaction.MinWidth = 25;
-            this.IDTransaction.Name = "IDTransaction";
-            this.IDTransaction.Width = 94;
-            // 
-            // Date
-            // 
-            this.Date.Caption = "Date";
-            this.Date.ColumnEdit = this.repDateEdit;
-            this.Date.FieldName = "Date";
-            this.Date.MinWidth = 25;
-            this.Date.Name = "Date";
-            this.Date.Visible = true;
-            this.Date.VisibleIndex = 0;
-            this.Date.Width = 94;
-            // 
-            // DiscountValue
-            // 
-            this.DiscountValue.Caption = "Discount Value";
-            this.DiscountValue.FieldName = "DiscountValue";
-            this.DiscountValue.MinWidth = 25;
-            this.DiscountValue.Name = "DiscountValue";
-            this.DiscountValue.Visible = true;
-            this.DiscountValue.VisibleIndex = 1;
-            this.DiscountValue.Width = 94;
-            // 
-            // TotalValue
-            // 
-            this.TotalValue.Caption = "Total Value";
-            this.TotalValue.FieldName = "TotalValue";
-            this.TotalValue.MinWidth = 25;
-            this.TotalValue.Name = "TotalValue";
-            this.TotalValue.Visible = true;
-            this.TotalValue.VisibleIndex = 2;
-            this.TotalValue.Width = 94;
             // 
             // gridItems
             // 
@@ -859,7 +859,7 @@ namespace FuelStationApp {
             this.EmployeeName.MinWidth = 25;
             this.EmployeeName.Name = "EmployeeName";
             this.EmployeeName.Visible = true;
-            this.EmployeeName.VisibleIndex = 1;
+            this.EmployeeName.VisibleIndex = 0;
             this.EmployeeName.Width = 94;
             // 
             // EmployeeSurname
@@ -869,7 +869,7 @@ namespace FuelStationApp {
             this.EmployeeSurname.MinWidth = 25;
             this.EmployeeSurname.Name = "EmployeeSurname";
             this.EmployeeSurname.Visible = true;
-            this.EmployeeSurname.VisibleIndex = 2;
+            this.EmployeeSurname.VisibleIndex = 1;
             this.EmployeeSurname.Width = 94;
             // 
             // DateStart
@@ -901,7 +901,7 @@ namespace FuelStationApp {
             this.Salary.MinWidth = 25;
             this.Salary.Name = "Salary";
             this.Salary.Visible = true;
-            this.Salary.VisibleIndex = 5;
+            this.Salary.VisibleIndex = 4;
             this.Salary.Width = 94;
             // 
             // gridLedger
@@ -989,7 +989,7 @@ namespace FuelStationApp {
             this.Appearance.Options.UseBorderColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.gridControl1);
@@ -1009,11 +1009,11 @@ namespace FuelStationApp {
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLedger)).EndInit();
