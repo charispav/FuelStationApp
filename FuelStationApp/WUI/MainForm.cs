@@ -395,7 +395,7 @@ namespace FuelStationApp {
          
         }
         //UpdateTransaction
-        private void UpdateTransaction() {
+        private void UpdateTransaction(Guid TransactionId) {
 
             try {
 
