@@ -194,7 +194,6 @@ namespace FuelStationApp {
 
                 object CellValueID = gridEmployees.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValueID;
-                MessageBox.Show(_id.ToString());
                 object CellValueName = gridEmployees.GetFocusedRowCellValue("Name");
                 string _name = CellValueName.ToString();
                 object CellValueSurname = gridEmployees.GetFocusedRowCellValue("Surname");
@@ -203,17 +202,19 @@ namespace FuelStationApp {
                 DateTime _dateStart = (DateTime)CellValueDateStart;
                 object CellValueDateEnd = gridEmployees.GetFocusedRowCellValue("DateEnd");
                 DateTime _dateEnd = (DateTime)CellValueDateEnd;
+                //string dateEnd = $"{_dateEnd.Year}{_dateEnd.Month}{_dateEnd.Day}";
+               
                 object CellValueSalary = gridEmployees.GetFocusedRowCellValue("Salary");
                 decimal _salary = (decimal)CellValueSalary;
 
-                MessageBox.Show(_surname);
+               
                 SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Employee SET Surname = '" + _surname + "',[Name] = '" + _name + "',DateStart = '" + _dateStart + "',[DateEnd] = '" + _dateEnd+"',[Salary] = "+ _salary +"WHERE ID = '"+ _id+"'; ", _SqlConnection);
 
                 adapter.Fill(MasterData);
 
             }
             catch (Exception ex) {
-
+                MessageBox.Show("Fail");
             }
 
         }
@@ -456,15 +457,13 @@ namespace FuelStationApp {
 
         }
 
-        private void gridCustomers_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter) {
-                UpdateCustomer();
-                e.Handled = true;
-            }
-        }
 
         private void getEmployees_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             GetEmployeeData();
+        }
+
+        private void gridEmployees_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e) {
+            UpdateEmployee();
         }
     }
 }
