@@ -1,5 +1,7 @@
 ﻿
 using DevExpress.XtraGrid.Views.Grid;
+using FuelStationApp.Impl;
+using FuelStationApp.WUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,20 +57,27 @@ namespace FuelStationApp {
 
         private void GetCustomerData() {
             //gridControl1.DataSource = null;
+         
 
-            gridControl1.MainView = gridCustomers;
+            //gridControl1.RefreshDataSource();
             //gridControl1.DataSource = null;
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID],[Name],[Surname],[CardNumber] FROM CUSTOMERS", _SqlConnection);
 
+                MasterData = new DataSet();
                 adapter.Fill(MasterData);
+                
 
             }
             catch (Exception ex) {
 
             }
+
+           
+            gridControl1.MainView = gridCustomers;
             gridControl1.DataSource = MasterData.Tables[0];
+
         }
       /*  private void GetTransactionData() {
 
@@ -130,9 +139,10 @@ namespace FuelStationApp {
         private void UpdateCustomer() {
 
             try {
-                
+
+                //Guid CellValueID = (Guid)gridCustomers.GetFocusedRowCellValue("ID");
                 object CellValue = gridCustomers.GetFocusedRowCellValue("ID");
-                Guid _id = (Guid)CellValue;
+                Guid _id = (Guid) CellValue;
 
                 //MessageBox.Show(_id.ToString());
                 object CellValueName = gridCustomers.GetFocusedRowCellValue("Name");
@@ -141,9 +151,9 @@ namespace FuelStationApp {
                 string _surname = CellValueSurname.ToString();
                 object CellValueCardNumber = gridCustomers.GetFocusedRowCellValue("CardNumber");
                 int _cardNumber = (int) CellValueCardNumber;
-
-                //gridCustomers.MoveNext();
-                //MessageBox.Show(_surname);
+               // Customer c1 = new Customer(new Person(new Entity(_id),_name,_surname ), _cardNumber);
+                
+                
                 SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Customers SET Surname ='" + _surname + "' ,	[Name] ='" + _name + "' , CardNumber ='" + _cardNumber + "'WHERE ID = '" + _id + "';", _SqlConnection);
 
                 adapter.Fill(MasterData);
@@ -464,6 +474,12 @@ namespace FuelStationApp {
 
         private void gridEmployees_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e) {
             UpdateEmployee();
+        }
+
+        private void addCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            AddForm addform = new AddForm(new Customer());
+            addform.ShowDialog();
+           // MessageBox.Show(addform.Type);
         }
     }
 }
