@@ -127,22 +127,25 @@ namespace FuelStationApp {
         private void UpdateCustomer() {
 
             try {
-
-                object CellValue = gridCustomer.GetFocusedRowCellValue("ID");
+                
+                object CellValue = gridCustomers.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
-                MessageBox.Show(_id.ToString());
-                object CellValueName = gridView1.GetFocusedRowCellValue("Name");
-                string _name = CellValueName.ToString();
-                object CellValueSurname = gridView1.GetFocusedRowCellValue("Surname");
-                string _surname = CellValueSurname.ToString();
-                object CellValueCardNumber = gridView1.GetFocusedRowCellValue("CardNumber");
-                int _cardNumber =(int) CellValueCardNumber;
 
-                MessageBox.Show(_surname);
+                //MessageBox.Show(_id.ToString());
+                object CellValueName = gridCustomers.GetFocusedRowCellValue("Name");
+                string _name = CellValueName.ToString();
+                object CellValueSurname = gridCustomers.GetFocusedRowCellValue("Surname");
+                string _surname = CellValueSurname.ToString();
+                object CellValueCardNumber = gridCustomers.GetFocusedRowCellValue("CardNumber");
+                int _cardNumber = (int) CellValueCardNumber;
+
+                //gridCustomers.MoveNext();
+                //MessageBox.Show(_surname);
                 SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Customers SET Surname ='" + _surname + "' ,	[Name] ='" + _name + "' , CardNumber ='" + _cardNumber + "'WHERE ID = '" + _id + "';", _SqlConnection);
 
                 adapter.Fill(MasterData);
-
+                MessageBox.Show("Database Updated!");
+                
             }
             catch (Exception ex) {
 
@@ -167,7 +170,7 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValue = gridView3.GetFocusedRowCellValue("ID");
+                object CellValue = gridEmployees.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Employee WHERE ID = '" + _id + "';", _SqlConnection);
@@ -184,18 +187,18 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValueID = gridView3.GetFocusedRowCellValue("ID");
+                object CellValueID = gridEmployees.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValueID;
                 MessageBox.Show(_id.ToString());
-                object CellValueName = gridView3.GetFocusedRowCellValue("Name");
+                object CellValueName = gridEmployees.GetFocusedRowCellValue("Name");
                 string _name = CellValueName.ToString();
-                object CellValueSurname = gridView3.GetFocusedRowCellValue("Surname");
+                object CellValueSurname = gridEmployees.GetFocusedRowCellValue("Surname");
                 string _surname = CellValueSurname.ToString();
-                object CellValueDateStart = gridView3.GetFocusedRowCellValue("DateStart");
+                object CellValueDateStart = gridEmployees.GetFocusedRowCellValue("DateStart");
                 DateTime _dateStart = (DateTime)CellValueDateStart;
-                object CellValueDateEnd = gridView3.GetFocusedRowCellValue("DateEnd");
+                object CellValueDateEnd = gridEmployees.GetFocusedRowCellValue("DateEnd");
                 DateTime _dateEnd = (DateTime)CellValueDateEnd;
-                object CellValueSalary = gridView3.GetFocusedRowCellValue("Salary");
+                object CellValueSalary = gridEmployees.GetFocusedRowCellValue("Salary");
                 decimal _salary = (decimal)CellValueSalary;
 
                 MessageBox.Show(_surname);
@@ -227,7 +230,7 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValue = gridView4.GetFocusedRowCellValue("ID");
+                object CellValue = gridItems.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Items WHERE ID = '" + _id + "';", _SqlConnection);
@@ -243,18 +246,18 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValueID = gridView3.GetFocusedRowCellValue("ID");
+                object CellValueID = gridItems.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValueID;
                 MessageBox.Show(_id.ToString());
-                object CellValueCode = gridView3.GetFocusedRowCellValue("Code");
+                object CellValueCode = gridItems.GetFocusedRowCellValue("Code");
                 string _code = CellValueCode.ToString();
-                object CellValueDescription = gridView3.GetFocusedRowCellValue("Description");
+                object CellValueDescription = gridItems.GetFocusedRowCellValue("Description");
                 string _description = CellValueDescription.ToString();
-                object CellValueItemType = gridView3.GetFocusedRowCellValue("ItemType");
+                object CellValueItemType = gridItems.GetFocusedRowCellValue("ItemType");
                 string _itemType = CellValueItemType.ToString();
-                object CellValuePrice = gridView3.GetFocusedRowCellValue("Price");
+                object CellValuePrice = gridItems.GetFocusedRowCellValue("Price");
                 decimal _price = (decimal)CellValuePrice;
-                object CellValueCost = gridView3.GetFocusedRowCellValue("Cost");
+                object CellValueCost = gridItems.GetFocusedRowCellValue("Cost");
                 decimal _cost = (decimal)CellValueCost;
 
              
@@ -286,7 +289,7 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValue = gridView5.GetFocusedRowCellValue("ID");
+                object CellValue = gridTransactions.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Transaction WHERE ID = '" + _id + "';", _SqlConnection);
@@ -303,16 +306,16 @@ namespace FuelStationApp {
             try {
 
 
-                object CellValueID = gridView3.GetFocusedRowCellValue("ID");
+                object CellValueID = gridTransactions.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValueID;
                 MessageBox.Show(_id.ToString());
-                object CellValueDate = gridView3.GetFocusedRowCellValue("Date");
+                object CellValueDate = gridTransactions.GetFocusedRowCellValue("Date");
                 DateTime _date = (DateTime)CellValueDate;
-                object CellValueCustomerID = gridView3.GetFocusedRowCellValue("CustomerID");//////////////////////
+                object CellValueCustomerID = gridTransactions.GetFocusedRowCellValue("CustomerID");//////////////////////
                 Guid _customerID = (Guid)CellValueID;
-                object CellValueDiscountValue = gridView3.GetFocusedRowCellValue("DiscountValue");
+                object CellValueDiscountValue = gridTransactions.GetFocusedRowCellValue("DiscountValue");
                 decimal _discountValue = (decimal)CellValueDiscountValue;
-                object CellValueTotalValue = gridView3.GetFocusedRowCellValue("TotalValue");
+                object CellValueTotalValue = gridTransactions.GetFocusedRowCellValue("TotalValue");
                 decimal _totalValue = (decimal)CellValueTotalValue;
 
 
@@ -344,7 +347,7 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValue = gridView6.GetFocusedRowCellValue("ID");
+                object CellValue = gridTransactionLine.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM TransactionLine WHERE ID = '" + _id + "';", _SqlConnection);
@@ -373,7 +376,7 @@ namespace FuelStationApp {
 
             try {
 
-                object CellValue = gridView7.GetFocusedRowCellValue("ID");
+                object CellValue = gridLedger.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
                 MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Ledger WHERE ID = '" + _id + "';", _SqlConnection);
@@ -385,7 +388,19 @@ namespace FuelStationApp {
             }
         }
 
+        private void gridCustomers_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e) {
+            UpdateCustomer();
+        }
 
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
 
+        }
+
+        private void gridCustomers_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                UpdateCustomer();
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -59,22 +59,18 @@ namespace FuelStationApp {
             this.transactions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ViewAndEditTransactions = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyTransaction = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveChangesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteTransactionPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.items = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditItems = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyItems = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveChanges = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteItemPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.customers = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditCustomers = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveCustomerChangesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.employees = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditEmployees = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveEmployeeChangesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteEmployeePageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ledger = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewLedger = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,6 +80,12 @@ namespace FuelStationApp {
             this.fuelStationDBDataSet = new FuelStationApp.FuelStationDBDataSet();
             this.fuelStationDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IDCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CustomerName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Surname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridTransactionLine = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDTransactionLine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TransactionID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,7 +93,6 @@ namespace FuelStationApp {
             this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ItemPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Value = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDTransaction = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,11 +105,6 @@ namespace FuelStationApp {
             this.ItemType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Cost = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CustomerName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Surname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CardNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridEmployees = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IDEmployee = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EmployeeName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,12 +124,12 @@ namespace FuelStationApp {
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLedger)).BeginInit();
             this.SuspendLayout();
@@ -354,6 +350,7 @@ namespace FuelStationApp {
             this.barButtonItem1.ImageOptions.Image = global::FuelStationApp.Resources.save_16x164;
             this.barButtonItem1.ImageOptions.LargeImage = global::FuelStationApp.Resources.save_32x324;
             this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -426,7 +423,6 @@ namespace FuelStationApp {
             this.transactions.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ViewAndEditTransactions,
             this.modifyTransaction,
-            this.saveChangesPageGroup,
             this.deleteTransactionPageGroup});
             this.transactions.Name = "transactions";
             this.transactions.Text = "Transactions";
@@ -444,12 +440,6 @@ namespace FuelStationApp {
             this.modifyTransaction.Name = "modifyTransaction";
             this.modifyTransaction.Text = "Modify";
             // 
-            // saveChangesPageGroup
-            // 
-            this.saveChangesPageGroup.ItemLinks.Add(this.saveTransactionChanges);
-            this.saveChangesPageGroup.Name = "saveChangesPageGroup";
-            this.saveChangesPageGroup.Text = "Save";
-            // 
             // deleteTransactionPageGroup
             // 
             this.deleteTransactionPageGroup.ItemLinks.Add(this.deleteTransaction);
@@ -461,7 +451,6 @@ namespace FuelStationApp {
             this.items.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.viewAndEditItems,
             this.modifyItems,
-            this.saveChanges,
             this.deleteItemPageGroup});
             this.items.Name = "items";
             this.items.Text = "Items";
@@ -479,12 +468,6 @@ namespace FuelStationApp {
             this.modifyItems.Name = "modifyItems";
             this.modifyItems.Text = "Modify";
             // 
-            // saveChanges
-            // 
-            this.saveChanges.ItemLinks.Add(this.saveItemChanges);
-            this.saveChanges.Name = "saveChanges";
-            this.saveChanges.Text = "Save";
-            // 
             // deleteItemPageGroup
             // 
             this.deleteItemPageGroup.ItemLinks.Add(this.deleteItem);
@@ -496,7 +479,6 @@ namespace FuelStationApp {
             this.customers.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.viewAndEditCustomers,
             this.modifyCustomer,
-            this.saveCustomerChangesPageGroup,
             this.deleteCustomerPageGroup});
             this.customers.Name = "customers";
             this.customers.Text = "Customers";
@@ -513,12 +495,6 @@ namespace FuelStationApp {
             this.modifyCustomer.Name = "modifyCustomer";
             this.modifyCustomer.Text = "Modify";
             // 
-            // saveCustomerChangesPageGroup
-            // 
-            this.saveCustomerChangesPageGroup.ItemLinks.Add(this.saveCustomerChanges);
-            this.saveCustomerChangesPageGroup.Name = "saveCustomerChangesPageGroup";
-            this.saveCustomerChangesPageGroup.Text = "Save";
-            // 
             // deleteCustomerPageGroup
             // 
             this.deleteCustomerPageGroup.ItemLinks.Add(this.deleteCustomer2);
@@ -530,7 +506,6 @@ namespace FuelStationApp {
             this.employees.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.viewAndEditEmployees,
             this.modifyEmployee,
-            this.saveEmployeeChangesPageGroup,
             this.deleteEmployeePageGroup});
             this.employees.Name = "employees";
             this.employees.Text = "Employees";
@@ -546,12 +521,6 @@ namespace FuelStationApp {
             this.modifyEmployee.ItemLinks.Add(this.addEmployee);
             this.modifyEmployee.Name = "modifyEmployee";
             this.modifyEmployee.Text = "Modify";
-            // 
-            // saveEmployeeChangesPageGroup
-            // 
-            this.saveEmployeeChangesPageGroup.ItemLinks.Add(this.saveEmployeeChanges);
-            this.saveEmployeeChangesPageGroup.Name = "saveEmployeeChangesPageGroup";
-            this.saveEmployeeChangesPageGroup.Text = "Save";
             // 
             // deleteEmployeePageGroup
             // 
@@ -603,7 +572,7 @@ namespace FuelStationApp {
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.gridControl1.Location = new System.Drawing.Point(0, 195);
-            this.gridControl1.MainView = this.gridCustomers;
+            this.gridControl1.MainView = this.gridTransactions;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -611,12 +580,71 @@ namespace FuelStationApp {
             this.gridControl1.Size = new System.Drawing.Size(996, 364);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridCustomers,
             this.gridTransactionLine,
             this.gridTransactions,
             this.gridItems,
-            this.gridCustomers,
             this.gridEmployees,
             this.gridLedger});
+            // 
+            // gridCustomers
+            // 
+            this.gridCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.IDCustomer,
+            this.CustomerName,
+            this.Surname,
+            this.CardNumber});
+            this.gridCustomers.GridControl = this.gridControl1;
+            this.gridCustomers.Name = "gridCustomers";
+            this.gridCustomers.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridCustomers_RowUpdated);
+            this.gridCustomers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCustomers_KeyDown);
+            // 
+            // IDCustomer
+            // 
+            this.IDCustomer.Caption = "ID";
+            this.IDCustomer.FieldName = "ID";
+            this.IDCustomer.MinWidth = 25;
+            this.IDCustomer.Name = "IDCustomer";
+            this.IDCustomer.Width = 94;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.Caption = "Name";
+            this.CustomerName.FieldName = "Name";
+            this.CustomerName.MinWidth = 25;
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.Visible = true;
+            this.CustomerName.VisibleIndex = 0;
+            this.CustomerName.Width = 94;
+            // 
+            // Surname
+            // 
+            this.Surname.Caption = "Surname";
+            this.Surname.FieldName = "Surname";
+            this.Surname.MinWidth = 25;
+            this.Surname.Name = "Surname";
+            this.Surname.Visible = true;
+            this.Surname.VisibleIndex = 1;
+            this.Surname.Width = 94;
+            // 
+            // CardNumber
+            // 
+            this.CardNumber.Caption = "Card Number";
+            this.CardNumber.FieldName = "CardNumber";
+            this.CardNumber.MinWidth = 25;
+            this.CardNumber.Name = "CardNumber";
+            this.CardNumber.Visible = true;
+            this.CardNumber.VisibleIndex = 2;
+            this.CardNumber.Width = 94;
+            // 
+            // repDateEdit
+            // 
+            this.repDateEdit.AutoHeight = false;
+            this.repDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateEdit.Name = "repDateEdit";
             // 
             // gridTransactionLine
             // 
@@ -683,15 +711,6 @@ namespace FuelStationApp {
             this.Value.Visible = true;
             this.Value.VisibleIndex = 2;
             this.Value.Width = 94;
-            // 
-            // repDateEdit
-            // 
-            this.repDateEdit.AutoHeight = false;
-            this.repDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repDateEdit.Name = "repDateEdit";
             // 
             // gridTransactions
             // 
@@ -812,54 +831,6 @@ namespace FuelStationApp {
             this.Cost.VisibleIndex = 4;
             this.Cost.Width = 94;
             // 
-            // gridCustomers
-            // 
-            this.gridCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDCustomer,
-            this.CustomerName,
-            this.Surname,
-            this.CardNumber});
-            this.gridCustomers.GridControl = this.gridControl1;
-            this.gridCustomers.Name = "gridCustomers";
-            // 
-            // IDCustomer
-            // 
-            this.IDCustomer.Caption = "ID";
-            this.IDCustomer.FieldName = "ID";
-            this.IDCustomer.MinWidth = 25;
-            this.IDCustomer.Name = "IDCustomer";
-            this.IDCustomer.Width = 94;
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.Caption = "Name";
-            this.CustomerName.FieldName = "Name";
-            this.CustomerName.MinWidth = 25;
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Visible = true;
-            this.CustomerName.VisibleIndex = 0;
-            this.CustomerName.Width = 94;
-            // 
-            // Surname
-            // 
-            this.Surname.Caption = "Surname";
-            this.Surname.FieldName = "Surname";
-            this.Surname.MinWidth = 25;
-            this.Surname.Name = "Surname";
-            this.Surname.Visible = true;
-            this.Surname.VisibleIndex = 1;
-            this.Surname.Width = 94;
-            // 
-            // CardNumber
-            // 
-            this.CardNumber.Caption = "Card Number";
-            this.CardNumber.FieldName = "CardNumber";
-            this.CardNumber.MinWidth = 25;
-            this.CardNumber.Name = "CardNumber";
-            this.CardNumber.Visible = true;
-            this.CardNumber.VisibleIndex = 2;
-            this.CardNumber.Width = 94;
-            // 
             // gridEmployees
             // 
             this.gridEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -878,8 +849,6 @@ namespace FuelStationApp {
             this.IDEmployee.FieldName = "ID";
             this.IDEmployee.MinWidth = 25;
             this.IDEmployee.Name = "IDEmployee";
-            this.IDEmployee.Visible = true;
-            this.IDEmployee.VisibleIndex = 0;
             this.IDEmployee.Width = 94;
             // 
             // EmployeeName
@@ -910,7 +879,7 @@ namespace FuelStationApp {
             this.DateStart.MinWidth = 25;
             this.DateStart.Name = "DateStart";
             this.DateStart.Visible = true;
-            this.DateStart.VisibleIndex = 3;
+            this.DateStart.VisibleIndex = 2;
             this.DateStart.Width = 94;
             // 
             // DateEnd
@@ -921,7 +890,7 @@ namespace FuelStationApp {
             this.DateEnd.MinWidth = 25;
             this.DateEnd.Name = "DateEnd";
             this.DateEnd.Visible = true;
-            this.DateEnd.VisibleIndex = 4;
+            this.DateEnd.VisibleIndex = 3;
             this.DateEnd.Width = 94;
             // 
             // Salary
@@ -1039,12 +1008,12 @@ namespace FuelStationApp {
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fuelStationDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTransactionLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLedger)).EndInit();
             this.ResumeLayout(false);
@@ -1130,13 +1099,9 @@ namespace FuelStationApp {
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup viewAndEditTransactionLinesPageGroup;
         private DevExpress.XtraBars.BarButtonItem getTransactionLines;
         private DevExpress.XtraBars.BarButtonItem saveTransactionChanges;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveChangesPageGroup;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveChanges;
         private DevExpress.XtraBars.BarButtonItem saveItemChanges;
         private DevExpress.XtraBars.BarButtonItem saveCustomerChanges;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveCustomerChangesPageGroup;
         private DevExpress.XtraBars.BarButtonItem saveEmployeeChanges;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveEmployeeChangesPageGroup;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveTLPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup modifyTL;
