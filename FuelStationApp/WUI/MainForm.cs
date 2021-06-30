@@ -18,6 +18,7 @@ namespace FuelStationApp {
 
         public SqlConnection _SqlConnection { get; set; }
         private DataSet MasterData = new DataSet();
+        public EntityTypeEnum EntityType { get; set; }
 
         //private GridView gridView = new GridView();
         public MainForm(SqlConnection sqlConnection) {
@@ -169,16 +170,18 @@ namespace FuelStationApp {
         //GetEmployeeData
         private void GetEmployeeData() {
            
-            gridControl1.MainView = gridEmployees;
+            
             try {
 
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Name], [Surname], [DateStart], [DateEnd], [Salary] FROM [Employee]", _SqlConnection);
+                MasterData = new DataSet();
                 adapter.Fill(MasterData);
 
             }
             catch (Exception ex) {
 
             }
+            gridControl1.MainView = gridEmployees;
             gridControl1.DataSource = MasterData.Tables[0];
         }
         //DeleteEmployee
@@ -243,9 +246,9 @@ namespace FuelStationApp {
         }
         //GetItemData
         private void GetItemData() {
-            gridControl1.MainView = gridItems;
+            
             try {
-
+                MasterData = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Code], [Description], [ItemType], [Price], [Cost] FROM [Items]", _SqlConnection);
                 adapter.Fill(MasterData);
 
@@ -253,6 +256,7 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.MainView = gridItems;
             gridControl1.DataSource = MasterData.Tables[0];
         }
         //DeleteItems
@@ -303,9 +307,9 @@ namespace FuelStationApp {
         }
         //GetTransactionData
         private void GetTransactionData() {
-            gridControl1.MainView = gridTransactions;
+           
             try {
-
+                MasterData = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [Date], [CustomerID], [DiscountValue], [TotalValue] FROM [Transaction]", _SqlConnection);
                 adapter.Fill(MasterData);
 
@@ -313,6 +317,7 @@ namespace FuelStationApp {
             catch (Exception ex) {
 
             }
+            gridControl1.MainView = gridTransactions;
             gridControl1.DataSource = MasterData.Tables[0];
 
         }
@@ -365,7 +370,7 @@ namespace FuelStationApp {
         private void GetTransactionLineData() {
 
             try {
-
+                MasterData = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [TransactionId], [ItemID], [Quantity], [ItemPrice], [Value] FROM [TransactionLine]", _SqlConnection);
                 adapter.Fill(MasterData);
 
@@ -446,7 +451,7 @@ namespace FuelStationApp {
         private void GetLedgerData() {
 
             try {
-
+                MasterData = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [DateFrom], [DateTo], [Income], [Expences], [Total] FROM [Ledger]", _SqlConnection);
                 adapter.Fill(MasterData);
 
@@ -490,9 +495,23 @@ namespace FuelStationApp {
         }
 
         private void addCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            AddForm addform = new AddForm(new Customer());
-            addform.ShowDialog();
-           // MessageBox.Show(addform.Type);
+
+            GetCustomerData();
+            int initialLength = MasterData.Tables[0].Rows.Count;
+            AddForm addForm = new AddForm(EntityTypeEnum.Customer);
+            addForm._MasterData = MasterData;
+            addForm.ShowDialog();
+
+            if (addForm.DialogResult == DialogResult.OK) {
+                Guid id = (Guid)MasterData.Tables[0].Rows[initialLength].ItemArray[0];
+                string name = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[1]);
+                string surname = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[2]);
+                int cardNumber = Convert.ToInt32(MasterData.Tables[0].Rows[initialLength].ItemArray[3]);
+                //SqlDataAdapter adapter = new SqlDataAdapter("INSERT INTO Customers ([ID],[Name],[Surname],[CardNumber]) VALUES ('" + id + "' ,'" + name + "' ,'" + surname + "' ,"+ cardNumber + ");", _SqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO Customers ([ID],[Name],[Surname],[CardNumber]) VALUES ('{id}','{name}','{surname}','{cardNumber}')", _SqlConnection);
+
+                adapter.Fill(MasterData);
+            }
         }
     }
 }

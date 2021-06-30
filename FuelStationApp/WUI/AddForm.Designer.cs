@@ -31,12 +31,13 @@ namespace FuelStationApp.WUI {
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label5 = new DevExpress.XtraEditors.LabelControl();
             this.label4 = new DevExpress.XtraEditors.LabelControl();
             this.label3 = new DevExpress.XtraEditors.LabelControl();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -56,6 +57,7 @@ namespace FuelStationApp.WUI {
             this.btnCancel.Size = new System.Drawing.Size(125, 43);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
@@ -68,6 +70,7 @@ namespace FuelStationApp.WUI {
             this.btnOK.Size = new System.Drawing.Size(125, 43);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // textEdit1
             // 
@@ -104,13 +107,13 @@ namespace FuelStationApp.WUI {
             this.textEdit5.Size = new System.Drawing.Size(219, 24);
             this.textEdit5.TabIndex = 7;
             // 
-            // labelControl1
+            // label1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(63, 87);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 17);
-            this.labelControl1.TabIndex = 8;
-            this.labelControl1.Text = "label1";
+            this.label1.Location = new System.Drawing.Point(63, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "label1";
             // 
             // comboBoxEdit1
             // 
@@ -153,17 +156,28 @@ namespace FuelStationApp.WUI {
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lblTitle.Appearance.Options.UseFont = true;
+            this.lblTitle.Location = new System.Drawing.Point(63, 23);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(43, 28);
+            this.lblTitle.TabIndex = 14;
+            this.lblTitle.Text = "Title";
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 453);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textEdit5);
             this.Controls.Add(this.textEdit4);
             this.Controls.Add(this.textEdit3);
@@ -194,11 +208,12 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.TextEdit textEdit5;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.LabelControl label5;
         private DevExpress.XtraEditors.LabelControl label4;
         private DevExpress.XtraEditors.LabelControl label3;
         private DevExpress.XtraEditors.LabelControl label2;
+        private DevExpress.XtraEditors.LabelControl lblTitle;
     }
 }

@@ -50,6 +50,7 @@ namespace FuelStationApp {
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.getCustomerDetails = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.transactionCategory = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.actions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditTransactionLinesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,6 +69,7 @@ namespace FuelStationApp {
             this.viewAndEditCustomers = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.saveCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.employees = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditEmployees = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -167,9 +169,10 @@ namespace FuelStationApp {
             this.barButtonItem1,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.getCustomerDetails});
+            this.getCustomerDetails,
+            this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 34;
+            this.ribbonControl1.MaxItemId = 35;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.transactionCategory});
@@ -378,6 +381,14 @@ namespace FuelStationApp {
             this.getCustomerDetails.ImageOptions.LargeImage = global::FuelStationApp.Resources.showproduct_32x321;
             this.getCustomerDetails.Name = "getCustomerDetails";
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Save Changes";
+            this.barButtonItem4.Id = 34;
+            this.barButtonItem4.ImageOptions.Image = global::FuelStationApp.Resources.save_16x165;
+            this.barButtonItem4.ImageOptions.LargeImage = global::FuelStationApp.Resources.save_32x325;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // transactionCategory
             // 
             this.transactionCategory.Name = "transactionCategory";
@@ -481,6 +492,7 @@ namespace FuelStationApp {
             this.customers.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.viewAndEditCustomers,
             this.modifyCustomer,
+            this.saveCustomerPageGroup,
             this.deleteCustomerPageGroup});
             this.customers.Name = "customers";
             this.customers.Text = "Customers";
@@ -502,6 +514,12 @@ namespace FuelStationApp {
             this.deleteCustomerPageGroup.ItemLinks.Add(this.deleteCustomer2);
             this.deleteCustomerPageGroup.Name = "deleteCustomerPageGroup";
             this.deleteCustomerPageGroup.Text = "Delete";
+            // 
+            // saveCustomerPageGroup
+            // 
+            this.saveCustomerPageGroup.ItemLinks.Add(this.barButtonItem4);
+            this.saveCustomerPageGroup.Name = "saveCustomerPageGroup";
+            this.saveCustomerPageGroup.Text = "Save";
             // 
             // employees
             // 
@@ -1120,6 +1138,8 @@ namespace FuelStationApp {
         private DevExpress.XtraGrid.Columns.GridColumn ItemPrice;
         private DevExpress.XtraGrid.Columns.GridColumn Value;
         private DevExpress.XtraBars.BarButtonItem getCustomerDetails;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveCustomerPageGroup;
     }
 }
 

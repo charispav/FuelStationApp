@@ -11,5 +11,12 @@ namespace FuelStationApp.Impl {
             Product,
             Service
         }
-  
+        public enum EntityTypeEnum { 
+            Transaction,
+            TransactionLine,
+            Customer,
+            Employee,
+            Item,
+            Ledger
+        }
 }
