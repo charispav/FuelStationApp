@@ -38,27 +38,36 @@ namespace FuelStationApp.WUI {
                     label5.Visible = false;
                     textEdit5.Visible = false;
                     comboBoxEdit1.Visible = false;
+                    dateEdit1.Visible = false;
+                    dateEdit2.Visible = false;
+                    dateEdit3.Visible = false;
+                    dateEdit4.Visible = false;
                     break;
                 case EntityTypeEnum.Employee:
                     lblTitle.Text = "Add New Employee...";
                     label1.Text = "Name:";
-                    label2.Text = "Date Start:";
-                    label3.Text = "Date End:";
-                    label4.Text = "Salary:";
-                    label5.Visible = false;
-                    textEdit5.Visible = false;
+                    label2.Text = "Surname";
+                    label3.Text = "Date Start:";
+                    label4.Text = "Date End:";
+                    label5.Text = "Salary:";
                     comboBoxEdit1.Visible = false;
+                    dateEdit1.Visible = false;
+                    dateEdit2.Visible = false;
                     break;
                 case EntityTypeEnum.Item:
                     lblTitle.Text = "Add New Item...";
                     label1.Text = "Code:";
                     label2.Text = "Description:";
-                    label3.Text = "ItemType:";
+                    label3.Text = "Item Type:";
+                    textEdit3.Visible = false;
                     ComboBoxLoad();
                     comboBoxEdit1.Visible = true;
                     label4.Text = "Price:";
                     label5.Text = "Cost:";
-                   
+                    dateEdit1.Visible = false;
+                    dateEdit2.Visible = false;
+                    dateEdit3.Visible = false;
+                    dateEdit4.Visible = false;
                     break;
                 case EntityTypeEnum.Ledger:
                     lblTitle.Text = "Add New Ledger...";
@@ -71,6 +80,8 @@ namespace FuelStationApp.WUI {
                     label5.Visible = false;
                     textEdit5.Visible = false;
                     comboBoxEdit1.Visible = false;
+                    dateEdit3.Visible = false;
+                    dateEdit4.Visible = false;
                     break;
                 default:
                     break;
@@ -89,13 +100,13 @@ namespace FuelStationApp.WUI {
 
                     break;
                 case EntityTypeEnum.Employee:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, textEdit3.EditValue, textEdit4.EditValue);
+                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, dateEdit3.EditValue, dateEdit4.EditValue, textEdit5.EditValue);
                     break;
                 case EntityTypeEnum.Item:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, textEdit3.EditValue, textEdit4.EditValue, textEdit5.EditValue);
+                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue, textEdit5.EditValue);
                     break;
                 case EntityTypeEnum.Ledger:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue);
+                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), dateEdit1.EditValue, dateEdit2.EditValue);
                     break;
                 default:
                     break;
@@ -109,14 +120,9 @@ namespace FuelStationApp.WUI {
             Close();
         }
         private void ComboBoxLoad() {
-            List<ItemTypeEnum> enumList = Enum.GetValues(typeof(ItemTypeEnum)).Cast<ItemTypeEnum>().ToList();
-
-            foreach (ItemTypeEnum item in enumList) {
-               // comboBoxEdit1.Items.Add(item.ToString());
-            }
+            
+            comboBoxEdit1.Properties.Items.AddRange(typeof(ItemTypeEnum).GetEnumValues());
         }
-        private void textEdit4_EditValueChanged(object sender, EventArgs e) {
-
-        }
+       
     }
 }

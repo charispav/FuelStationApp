@@ -40,12 +40,24 @@ namespace FuelStationApp.WUI {
             this.label3 = new DevExpress.XtraEditors.LabelControl();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit4 = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -54,10 +66,9 @@ namespace FuelStationApp.WUI {
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(482, 304);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Location = new System.Drawing.Point(562, 398);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 33);
+            this.btnCancel.Size = new System.Drawing.Size(125, 43);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -68,108 +79,95 @@ namespace FuelStationApp.WUI {
             this.btnOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnOK.Appearance.Options.UseBackColor = true;
             this.btnOK.Appearance.Options.UseFont = true;
-            this.btnOK.Location = new System.Drawing.Point(369, 304);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOK.Location = new System.Drawing.Point(430, 398);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(107, 33);
+            this.btnOK.Size = new System.Drawing.Size(125, 43);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(145, 62);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEdit1.Location = new System.Drawing.Point(169, 81);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(188, 20);
+            this.textEdit1.Size = new System.Drawing.Size(219, 24);
             this.textEdit1.TabIndex = 3;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(145, 102);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEdit2.Location = new System.Drawing.Point(169, 133);
             this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(188, 20);
+            this.textEdit2.Size = new System.Drawing.Size(219, 24);
             this.textEdit2.TabIndex = 4;
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(145, 140);
-            this.textEdit3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEdit3.Location = new System.Drawing.Point(169, 183);
             this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(188, 20);
+            this.textEdit3.Size = new System.Drawing.Size(219, 24);
             this.textEdit3.TabIndex = 5;
             // 
             // textEdit4
             // 
-            this.textEdit4.Location = new System.Drawing.Point(145, 177);
-            this.textEdit4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEdit4.Location = new System.Drawing.Point(169, 231);
             this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(188, 20);
+            this.textEdit4.Size = new System.Drawing.Size(219, 24);
             this.textEdit4.TabIndex = 6;
-            this.textEdit4.EditValueChanged += new System.EventHandler(this.textEdit4_EditValueChanged);
             // 
             // textEdit5
             // 
-            this.textEdit5.Location = new System.Drawing.Point(145, 216);
-            this.textEdit5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEdit5.Location = new System.Drawing.Point(169, 282);
             this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(188, 20);
+            this.textEdit5.Size = new System.Drawing.Size(219, 24);
             this.textEdit5.TabIndex = 7;
-            this.textEdit5.EditValueChanged += new System.EventHandler(this.textEdit5_EditValueChanged);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(54, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.label1.Location = new System.Drawing.Point(63, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "label1";
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(369, 133);
-            this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(169, 183);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(188, 20);
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit1.Size = new System.Drawing.Size(219, 24);
             this.comboBoxEdit1.TabIndex = 13;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(54, 219);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.label5.Location = new System.Drawing.Point(63, 286);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(35, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "label5";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(54, 180);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.label4.Location = new System.Drawing.Point(63, 235);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(35, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "label4";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(54, 145);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.label3.Location = new System.Drawing.Point(63, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(35, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "label3";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(54, 107);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.label2.Location = new System.Drawing.Point(63, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(35, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
             // 
@@ -177,18 +175,69 @@ namespace FuelStationApp.WUI {
             // 
             this.lblTitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblTitle.Appearance.Options.UseFont = true;
-            this.lblTitle.Location = new System.Drawing.Point(54, 18);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblTitle.Location = new System.Drawing.Point(63, 24);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(34, 21);
+            this.lblTitle.Size = new System.Drawing.Size(43, 28);
             this.lblTitle.TabIndex = 14;
             this.lblTitle.Text = "Title";
             // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(169, 81);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit1.TabIndex = 15;
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(169, 133);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit2.TabIndex = 16;
+            // 
+            // dateEdit3
+            // 
+            this.dateEdit3.EditValue = null;
+            this.dateEdit3.Location = new System.Drawing.Point(169, 183);
+            this.dateEdit3.Name = "dateEdit3";
+            this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit3.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit3.TabIndex = 17;
+            // 
+            // dateEdit4
+            // 
+            this.dateEdit4.EditValue = null;
+            this.dateEdit4.Location = new System.Drawing.Point(169, 231);
+            this.dateEdit4.Name = "dateEdit4";
+            this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit4.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit4.TabIndex = 18;
+            // 
             // AddForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 346);
+            this.ClientSize = new System.Drawing.Size(699, 452);
+            this.Controls.Add(this.dateEdit4);
+            this.Controls.Add(this.dateEdit3);
+            this.Controls.Add(this.dateEdit2);
+            this.Controls.Add(this.dateEdit1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.label5);
@@ -203,7 +252,6 @@ namespace FuelStationApp.WUI {
             this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddForm";
             this.Text = "AddForm";
             this.Load += new System.EventHandler(this.AddForm_Load);
@@ -213,6 +261,14 @@ namespace FuelStationApp.WUI {
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +294,9 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.LabelControl label3;
         private DevExpress.XtraEditors.LabelControl label2;
         private DevExpress.XtraEditors.LabelControl lblTitle;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit3;
+        private DevExpress.XtraEditors.DateEdit dateEdit4;
     }
 }
