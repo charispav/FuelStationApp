@@ -68,8 +68,8 @@ namespace FuelStationApp {
             this.customers = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditCustomers = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.deleteCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.saveCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.deleteCustomerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.employees = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditEmployees = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -186,8 +186,9 @@ namespace FuelStationApp {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
+            this.ribbonControl1.Size = new System.Drawing.Size(996, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
+            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // addTransaction
             // 
@@ -509,17 +510,17 @@ namespace FuelStationApp {
             this.modifyCustomer.Name = "modifyCustomer";
             this.modifyCustomer.Text = "Modify";
             // 
-            // deleteCustomerPageGroup
-            // 
-            this.deleteCustomerPageGroup.ItemLinks.Add(this.deleteCustomer2);
-            this.deleteCustomerPageGroup.Name = "deleteCustomerPageGroup";
-            this.deleteCustomerPageGroup.Text = "Delete";
-            // 
             // saveCustomerPageGroup
             // 
             this.saveCustomerPageGroup.ItemLinks.Add(this.barButtonItem4);
             this.saveCustomerPageGroup.Name = "saveCustomerPageGroup";
             this.saveCustomerPageGroup.Text = "Save";
+            // 
+            // deleteCustomerPageGroup
+            // 
+            this.deleteCustomerPageGroup.ItemLinks.Add(this.deleteCustomer2);
+            this.deleteCustomerPageGroup.Name = "deleteCustomerPageGroup";
+            this.deleteCustomerPageGroup.Text = "Delete";
             // 
             // employees
             // 
@@ -567,10 +568,10 @@ namespace FuelStationApp {
             // 
             // ribbonStatusBar2
             // 
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 559);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 565);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 30);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 24);
             // 
             // ribbonPage3
             // 
@@ -591,13 +592,13 @@ namespace FuelStationApp {
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.gridControl1.Location = new System.Drawing.Point(0, 195);
+            this.gridControl1.Location = new System.Drawing.Point(0, 158);
             this.gridControl1.MainView = this.gridCustomers;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDateEdit});
-            this.gridControl1.Size = new System.Drawing.Size(996, 364);
+            this.gridControl1.Size = new System.Drawing.Size(996, 407);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridCustomers,
@@ -1010,7 +1011,7 @@ namespace FuelStationApp {
             this.Appearance.Options.UseBorderColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.gridControl1);

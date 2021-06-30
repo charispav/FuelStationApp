@@ -513,5 +513,9 @@ namespace FuelStationApp {
                 adapter.Fill(MasterData);
             }
         }
+
+        private void ribbonControl1_Click(object sender, EventArgs e) {
+
+        }
     }
 }
