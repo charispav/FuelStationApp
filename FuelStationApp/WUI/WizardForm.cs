@@ -24,6 +24,9 @@ namespace FuelStationApp.WUI {
         public WizardForm() {
             InitializeComponent();
         }
+        private void WizardForm_Load(object sender, EventArgs e) {
+
+        }
 
         #region Form Events
         private void wizardControl1_CancelClick(object sender, CancelEventArgs e) {
@@ -93,16 +96,6 @@ namespace FuelStationApp.WUI {
 
         #endregion
 
-        private void WizardForm_Load(object sender, EventArgs e) {
-
-        }
-
-        private void welcomeWizardPage1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void ctrlConnectionString_EditValueChanged(object sender, EventArgs e) {
-
-        }
+     
     }
 }

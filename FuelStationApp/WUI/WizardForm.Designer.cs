@@ -67,10 +67,9 @@ namespace FuelStationApp.WUI {
             this.welcomeWizardPage1.IntroductionText = "First, a connection string must be given:";
             this.welcomeWizardPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.welcomeWizardPage1.Name = "welcomeWizardPage1";
-            this.welcomeWizardPage1.Size = new System.Drawing.Size(537, 392);
+            this.welcomeWizardPage1.Size = new System.Drawing.Size(534, 401);
             this.welcomeWizardPage1.Text = "Connect to Database";
             this.welcomeWizardPage1.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.welcomeWizardPage1_PageValidating);
-            this.welcomeWizardPage1.Click += new System.EventHandler(this.welcomeWizardPage1_Click);
             // 
             // ctrlConnectionString
             // 
@@ -78,7 +77,6 @@ namespace FuelStationApp.WUI {
             this.ctrlConnectionString.Name = "ctrlConnectionString";
             this.ctrlConnectionString.Size = new System.Drawing.Size(531, 24);
             this.ctrlConnectionString.TabIndex = 0;
-            this.ctrlConnectionString.EditValueChanged += new System.EventHandler(this.ctrlConnectionString_EditValueChanged);
             // 
             // wizardPage1
             // 
@@ -89,7 +87,7 @@ namespace FuelStationApp.WUI {
             this.wizardPage1.DescriptionText = "Please fill in your credentials:";
             this.wizardPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.wizardPage1.Name = "wizardPage1";
-            this.wizardPage1.Size = new System.Drawing.Size(752, 378);
+            this.wizardPage1.Size = new System.Drawing.Size(750, 387);
             this.wizardPage1.Text = "User Login";
             this.wizardPage1.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.wizardPage1_PageValidating);
             // 
@@ -104,7 +102,7 @@ namespace FuelStationApp.WUI {
             this.ctrlPassword.Properties.Appearance.Options.UseFont = true;
             this.ctrlPassword.Properties.PasswordChar = '*';
             this.ctrlPassword.Properties.UseSystemPasswordChar = true;
-            this.ctrlPassword.Size = new System.Drawing.Size(320, 32);
+            this.ctrlPassword.Size = new System.Drawing.Size(318, 32);
             this.ctrlPassword.TabIndex = 31;
             // 
             // labelControl3
@@ -142,7 +140,7 @@ namespace FuelStationApp.WUI {
             this.ctrlUsername.Name = "ctrlUsername";
             this.ctrlUsername.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlUsername.Properties.Appearance.Options.UseFont = true;
-            this.ctrlUsername.Size = new System.Drawing.Size(320, 32);
+            this.ctrlUsername.Size = new System.Drawing.Size(318, 32);
             this.ctrlUsername.TabIndex = 28;
             // 
             // completionWizardPage1
@@ -151,7 +149,7 @@ namespace FuelStationApp.WUI {
             this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.completionWizardPage1.Name = "completionWizardPage1";
             this.completionWizardPage1.ProceedText = "To begin, click Start";
-            this.completionWizardPage1.Size = new System.Drawing.Size(537, 392);
+            this.completionWizardPage1.Size = new System.Drawing.Size(534, 401);
             this.completionWizardPage1.Text = "All steps completed";
             // 
             // WizardForm

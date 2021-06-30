@@ -159,6 +159,12 @@
     <Content Include="Custom-Icon-Design-Pretty-Office-8-Gas-pump.ico" />
     <Content Include="Queries\AccountCredentialsSelect.sql" />
     <Content Include="Queries\DeleteCustomer.sql" />
+    <None Include="Resources\save_16x168.png" />
+    <None Include="Resources\save_32x328.png" />
+    <None Include="Resources\save_16x167.png" />
+    <None Include="Resources\save_32x327.png" />
+    <None Include="Resources\save_16x166.png" />
+    <None Include="Resources\save_32x326.png" />
     <None Include="Resources\save_16x165.png" />
     <None Include="Resources\save_32x325.png" />
     <None Include="Resources\showproduct_16x161.png" />
