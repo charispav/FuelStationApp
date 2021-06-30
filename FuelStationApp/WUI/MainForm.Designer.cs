@@ -195,8 +195,9 @@ namespace FuelStationApp {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(996, 195);
+            this.ribbonControl1.Size = new System.Drawing.Size(996, 158);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
+            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // addTransaction
             // 
@@ -637,10 +638,10 @@ namespace FuelStationApp {
             // 
             // ribbonStatusBar2
             // 
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 559);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 565);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 30);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(996, 24);
             // 
             // ribbonPage3
             // 
@@ -667,7 +668,7 @@ namespace FuelStationApp {
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDateEdit});
-            this.gridControl1.Size = new System.Drawing.Size(996, 364);
+            this.gridControl1.Size = new System.Drawing.Size(996, 407);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridTransactions,
@@ -1078,7 +1079,7 @@ namespace FuelStationApp {
             this.Appearance.Options.UseBorderColor = true;
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.gridControl1);
