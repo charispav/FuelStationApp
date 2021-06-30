@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -209,21 +210,33 @@ namespace FuelStationApp {
                 object CellValueSurname = gridEmployees.GetFocusedRowCellValue("Surname");
                 string _surname = CellValueSurname.ToString();
                 object CellValueDateStart = gridEmployees.GetFocusedRowCellValue("DateStart");
-                DateTime _dateStart = (DateTime)CellValueDateStart;
+              DateTime _dateStart = (DateTime)CellValueDateStart;
+                String _dateStartt = _dateStart.ToString("d");
+              // DateTime _dateStart = DateTime.ParseExact(CellValueDateStart.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+              //_dateStart = DateTime.Now.ToString("dd/MM/yyyy").Replace('-', '/');
+              //string s = _dateStart.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
                 object CellValueDateEnd = gridEmployees.GetFocusedRowCellValue("DateEnd");
                 DateTime _dateEnd = (DateTime)CellValueDateEnd;
+                String _dateEndd = _dateEnd.ToString("d");
                 //string dateEnd = $"{_dateEnd.Year}{_dateEnd.Month}{_dateEnd.Day}";
-               
+
                 object CellValueSalary = gridEmployees.GetFocusedRowCellValue("Salary");
                 decimal _salary = (decimal)CellValueSalary;
+                String _salaryy = _salary.ToString();
+                _salaryy = _salaryy.Replace(",", ".");
+                ////,DateStart = '" + s + "',[DateEnd] = '" + _dateEnd+"'
+                MessageBox.Show(_salaryy); //
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE [Employee] SET Surname = '" + _surname + "',[Name] = '" + _name  + "',DateStart = '" + _dateStartt + "',DateEnd = '" + _dateEndd + "',Salary = '" + _salaryy + "' WHERE ID = '" + _id+"'; ", _SqlConnection);
 
-               
-                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE Employee SET Surname = '" + _surname + "',[Name] = '" + _name + "',DateStart = '" + _dateStart + "',[DateEnd] = '" + _dateEnd+"',[Salary] = "+ _salary +"WHERE ID = '"+ _id+"'; ", _SqlConnection);
+                //SqlDataAdapter adapter = new SqlDataAdapter("UPDATE [Employee] SET Surname = '" + _surname + "',[Name] = '" + _name + "',DateStart = '" + _dateStartt + "',[DateEnd] = '" + _dateEndd +  "' WHERE ID = '"+ _id+"'; ", _SqlConnection);
+                //      SqlDataAdapter adapter = new SqlDataAdapter("UPDATE [Employee] SET Surname = '" + _surname + "',[Name] = '" + _name + "',[Salary] = '"+ _salary +        "' WHERE ID = '"+ _id+"'; ", _SqlConnection);
 
-                adapter.Fill(MasterData);
-
+                //adapter.Fill(MasterData);
+                
             }
             catch (Exception ex) {
+                
                 MessageBox.Show("Fail");
             }
 
