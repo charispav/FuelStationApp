@@ -66,7 +66,7 @@ namespace FuelStationApp.WUI {
             string quantity = Convert.ToDecimal(ctrlQuantity.EditValue).ToString().Replace(',', '.');
             Guid id = Guid.NewGuid();
             string value = (Convert.ToDecimal(quantity) * Convert.ToDecimal(itemprice)).ToString().Replace(',','.');
-            SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO TransactionLine ([ID],[TransactionID],[ItemID],[Quantity],[ItemPrice],[Value],[Description],[ItemType]) VALUES ('{id}','{TransactionID}','{itemId}',{quantity},{itemprice},{value},'{description}',{itemType})", _SqlConnectionTrans);
+            SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO TransactionLine ([ID],[TransactionID],[ItemID],[Quantity],[ItemPrice],[Value],[Description],[ItemType]) VALUES ('{id}','{TransactionID}','{itemId}','{quantity}','{itemprice}','{value}','{description}',{itemType})", _SqlConnectionTrans);
 
             adapter.Fill(TransactionData);
            // SqlCommand command = new SqlCommand($"SELECT * FROM ")
