@@ -57,15 +57,16 @@ namespace FuelStationApp.WUI {
         public void AddItems() {
             TransactionData = new DataSet();
             Guid selectedID = (Guid)gridView1.GetFocusedRowCellValue("ID");
-            DataRow selectedRow=ItemData.Tables[0].Select(String.Format("ID='{0}'", selectedID.ToString()))[0];
-           
-            for (int i = 0; i < selectedRow.ItemArray.Length; i++) {
+          
+            //DataRow selectedRow=ItemData.Tables[0].Select(String.Format("ID='{0}'", selectedID.ToString()))[0];
 
-                TransactionData.Tables[0].Rows[j].ItemArray[i]= selectedRow.ItemArray[i];
-                
-            }
-            j++;
-            gridControl2.DataSource = TransactionData.Tables[0];
+            //for (int i = 0; i < selectedRow.ItemArray.Length; i++) {
+
+            //    TransactionData.Tables[0].Rows[j].ItemArray[i]= selectedRow.ItemArray[i];
+
+            //}
+            //j++;
+            //gridControl2.DataSource = TransactionData.Tables[0];
 
         }
 
