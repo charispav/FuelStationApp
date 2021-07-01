@@ -44,6 +44,11 @@ namespace FuelStationApp {
         }
 
         private void addTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            GetItemData();
+            AddTransactionForm addTransactionForm = new AddTransactionForm(MasterData, _SqlConnection);
+   
+
+            addTransactionForm.ShowDialog();
 
         }
 
@@ -253,6 +258,7 @@ namespace FuelStationApp {
                 MasterDataOld = new DataSet();
                 adapter.Fill(MasterData, "Items");
                 adapter.Fill(MasterDataOld, "Items");
+               
 
             }
             catch (Exception) {
@@ -537,6 +543,8 @@ namespace FuelStationApp {
 
         }
 
+        private void gridControl1_Click(object sender, EventArgs e) {
 
+        }
     }
 }
