@@ -537,6 +537,10 @@ namespace FuelStationApp {
 
                     sqlLine.Add(string.Format("{0}={1}", columnName, decimalPart));
                     break;
+                case "ItemTypeEnum":
+                    ItemTypeEnum enumVal = (ItemTypeEnum)value;
+                    sqlLine.Add(string.Format("{0}={1}", columnName, Convert.ToInt16(enumVal)));
+                    break;
             }
 
 

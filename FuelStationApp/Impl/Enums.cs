@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace FuelStationApp.Impl {
    
         public enum ItemTypeEnum {
-            Fuel,
-            Product,
-            Service
+            Fuel = 0,
+            Product = 1,
+            Service = 2
         }
         public enum EntityTypeEnum { 
             Transaction,

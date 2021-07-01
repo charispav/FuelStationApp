@@ -42,9 +42,9 @@ namespace FuelStationApp.WUI {
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colItemPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colItemType2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
             this.btQuantity = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lblChooseItem = new DevExpress.XtraEditors.LabelControl();
@@ -59,25 +59,27 @@ namespace FuelStationApp.WUI {
             this.ctrlCCN = new DevExpress.XtraEditors.TextEdit();
             this.lblCCN = new DevExpress.XtraEditors.LabelControl();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
-            this.colItemType2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ctrlQuantity = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCCN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlQuantity.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(26, 119);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl2.Location = new System.Drawing.Point(30, 156);
             this.gridControl2.MainView = this.gridView1;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(361, 320);
+            this.gridControl2.Size = new System.Drawing.Size(421, 418);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -92,6 +94,7 @@ namespace FuelStationApp.WUI {
             this.colDescription,
             this.colItemType,
             this.colPrice});
+            this.gridView1.DetailHeight = 458;
             this.gridView1.GridControl = this.gridControl2;
             this.gridView1.Name = "gridView1";
             // 
@@ -99,54 +102,68 @@ namespace FuelStationApp.WUI {
             // 
             this.colID.Caption = "ID";
             this.colID.FieldName = "ID";
+            this.colID.MinWidth = 23;
             this.colID.Name = "colID";
+            this.colID.Width = 87;
             // 
             // colCost
             // 
             this.colCost.Caption = "Cost";
             this.colCost.FieldName = "Cost";
+            this.colCost.MinWidth = 23;
             this.colCost.Name = "colCost";
+            this.colCost.Width = 87;
             // 
             // colCode
             // 
             this.colCode.Caption = "Code";
             this.colCode.FieldName = "Code";
+            this.colCode.MinWidth = 23;
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 0;
+            this.colCode.Width = 87;
             // 
             // colDescription
             // 
             this.colDescription.Caption = "Description";
             this.colDescription.FieldName = "Description";
+            this.colDescription.MinWidth = 23;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
+            this.colDescription.Width = 87;
             // 
             // colItemType
             // 
             this.colItemType.Caption = "ItemType";
             this.colItemType.FieldName = "ItemType";
+            this.colItemType.MinWidth = 23;
             this.colItemType.Name = "colItemType";
             this.colItemType.Visible = true;
             this.colItemType.VisibleIndex = 2;
+            this.colItemType.Width = 87;
             // 
             // colPrice
             // 
             this.colPrice.Caption = "Price";
             this.colPrice.FieldName = "Price";
+            this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 3;
+            this.colPrice.Width = 87;
             // 
             // gridControl3
             // 
-            this.gridControl3.Location = new System.Drawing.Point(685, 107);
+            this.gridControl3.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl3.Location = new System.Drawing.Point(799, 140);
             this.gridControl3.MainView = this.gridView2;
+            this.gridControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl3.Name = "gridControl3";
             this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDelete});
-            this.gridControl3.Size = new System.Drawing.Size(497, 320);
+            this.gridControl3.Size = new System.Drawing.Size(580, 418);
             this.gridControl3.TabIndex = 1;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -164,66 +181,94 @@ namespace FuelStationApp.WUI {
             this.colValue,
             this.colItemType2,
             this.colDelete});
+            this.gridView2.DetailHeight = 458;
             this.gridView2.GridControl = this.gridControl3;
             this.gridView2.Name = "gridView2";
             // 
             // colCode2
             // 
             this.colCode2.Caption = "Code";
+            this.colCode2.MinWidth = 23;
             this.colCode2.Name = "colCode2";
             this.colCode2.Visible = true;
             this.colCode2.VisibleIndex = 0;
+            this.colCode2.Width = 87;
             // 
             // colDescription2
             // 
             this.colDescription2.Caption = "Description";
+            this.colDescription2.MinWidth = 23;
             this.colDescription2.Name = "colDescription2";
             this.colDescription2.Visible = true;
             this.colDescription2.VisibleIndex = 1;
+            this.colDescription2.Width = 87;
             // 
             // colID2
             // 
             this.colID2.Caption = "ID";
+            this.colID2.MinWidth = 23;
             this.colID2.Name = "colID2";
+            this.colID2.Width = 87;
             // 
             // colTransactionID2
             // 
             this.colTransactionID2.Caption = "TransactionID";
+            this.colTransactionID2.MinWidth = 23;
             this.colTransactionID2.Name = "colTransactionID2";
+            this.colTransactionID2.Width = 87;
             // 
             // colItemID2
             // 
             this.colItemID2.Caption = "ItemID";
+            this.colItemID2.MinWidth = 23;
             this.colItemID2.Name = "colItemID2";
+            this.colItemID2.Width = 87;
             // 
             // colQuantity
             // 
             this.colQuantity.Caption = "Quantity";
+            this.colQuantity.MinWidth = 23;
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.Visible = true;
             this.colQuantity.VisibleIndex = 2;
+            this.colQuantity.Width = 87;
             // 
             // colItemPrice
             // 
             this.colItemPrice.Caption = "Item Price";
+            this.colItemPrice.MinWidth = 23;
             this.colItemPrice.Name = "colItemPrice";
             this.colItemPrice.Visible = true;
             this.colItemPrice.VisibleIndex = 3;
+            this.colItemPrice.Width = 87;
             // 
             // colValue
             // 
             this.colValue.Caption = "Value";
+            this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
             this.colValue.VisibleIndex = 4;
+            this.colValue.Width = 87;
+            // 
+            // colItemType2
+            // 
+            this.colItemType2.Caption = "Item Type";
+            this.colItemType2.MinWidth = 23;
+            this.colItemType2.Name = "colItemType2";
+            this.colItemType2.Visible = true;
+            this.colItemType2.VisibleIndex = 6;
+            this.colItemType2.Width = 87;
             // 
             // colDelete
             // 
             this.colDelete.Caption = "Delete";
             this.colDelete.ColumnEdit = this.repDelete;
+            this.colDelete.MinWidth = 23;
             this.colDelete.Name = "colDelete";
             this.colDelete.Visible = true;
             this.colDelete.VisibleIndex = 5;
+            this.colDelete.Width = 87;
             // 
             // repDelete
             // 
@@ -233,158 +278,149 @@ namespace FuelStationApp.WUI {
             this.repDelete.Name = "repDelete";
             this.repDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // spinEdit1
-            // 
-            this.spinEdit1.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.spinEdit1.Location = new System.Drawing.Point(482, 157);
-            this.spinEdit1.Name = "spinEdit1";
-            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit1.Properties.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.spinEdit1.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.spinEdit1.Size = new System.Drawing.Size(100, 20);
-            this.spinEdit1.TabIndex = 2;
-            // 
             // btQuantity
             // 
-            this.btQuantity.Location = new System.Drawing.Point(495, 233);
+            this.btQuantity.Location = new System.Drawing.Point(577, 305);
+            this.btQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btQuantity.Name = "btQuantity";
-            this.btQuantity.Size = new System.Drawing.Size(75, 23);
+            this.btQuantity.Size = new System.Drawing.Size(87, 30);
             this.btQuantity.TabIndex = 3;
             this.btQuantity.Text = "Add Item(s)";
             this.btQuantity.Click += new System.EventHandler(this.btQuantity_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(928, 701);
+            this.btnOK.Location = new System.Drawing.Point(1083, 917);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(87, 30);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // lblChooseItem
             // 
-            this.lblChooseItem.Location = new System.Drawing.Point(53, 100);
+            this.lblChooseItem.Location = new System.Drawing.Point(62, 131);
+            this.lblChooseItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblChooseItem.Name = "lblChooseItem";
-            this.lblChooseItem.Size = new System.Drawing.Size(67, 13);
+            this.lblChooseItem.Size = new System.Drawing.Size(76, 17);
             this.lblChooseItem.TabIndex = 5;
             this.lblChooseItem.Text = "Choose Item:";
             // 
             // lblTransaction
             // 
-            this.lblTransaction.Location = new System.Drawing.Point(720, 88);
+            this.lblTransaction.Location = new System.Drawing.Point(840, 115);
+            this.lblTransaction.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblTransaction.Name = "lblTransaction";
-            this.lblTransaction.Size = new System.Drawing.Size(60, 13);
+            this.lblTransaction.Size = new System.Drawing.Size(67, 17);
             this.lblTransaction.TabIndex = 6;
             this.lblTransaction.Text = "Transaction";
             // 
             // lblQuantity
             // 
-            this.lblQuantity.Location = new System.Drawing.Point(420, 160);
+            this.lblQuantity.Location = new System.Drawing.Point(490, 209);
+            this.lblQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(44, 13);
+            this.lblQuantity.Size = new System.Drawing.Size(48, 17);
             this.lblQuantity.TabIndex = 7;
             this.lblQuantity.Text = "Quantity";
             // 
             // ctrlPBD
             // 
-            this.ctrlPBD.Location = new System.Drawing.Point(887, 443);
+            this.ctrlPBD.Location = new System.Drawing.Point(1035, 579);
+            this.ctrlPBD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlPBD.Name = "ctrlPBD";
             this.ctrlPBD.Properties.ReadOnly = true;
-            this.ctrlPBD.Size = new System.Drawing.Size(100, 20);
+            this.ctrlPBD.Size = new System.Drawing.Size(117, 24);
             this.ctrlPBD.TabIndex = 8;
             // 
             // ctrlDiscount
             // 
-            this.ctrlDiscount.Location = new System.Drawing.Point(887, 470);
+            this.ctrlDiscount.Location = new System.Drawing.Point(1035, 615);
+            this.ctrlDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlDiscount.Name = "ctrlDiscount";
             this.ctrlDiscount.Properties.ReadOnly = true;
-            this.ctrlDiscount.Size = new System.Drawing.Size(100, 20);
+            this.ctrlDiscount.Size = new System.Drawing.Size(117, 24);
             this.ctrlDiscount.TabIndex = 9;
             // 
             // ctrlTotalPrice
             // 
-            this.ctrlTotalPrice.Location = new System.Drawing.Point(887, 506);
+            this.ctrlTotalPrice.Location = new System.Drawing.Point(1035, 662);
+            this.ctrlTotalPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlTotalPrice.Name = "ctrlTotalPrice";
             this.ctrlTotalPrice.Properties.ReadOnly = true;
-            this.ctrlTotalPrice.Size = new System.Drawing.Size(100, 20);
+            this.ctrlTotalPrice.Size = new System.Drawing.Size(117, 24);
             this.ctrlTotalPrice.TabIndex = 10;
             // 
             // lblPBD
             // 
-            this.lblPBD.Location = new System.Drawing.Point(716, 443);
+            this.lblPBD.Location = new System.Drawing.Point(835, 579);
+            this.lblPBD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblPBD.Name = "lblPBD";
-            this.lblPBD.Size = new System.Drawing.Size(112, 13);
+            this.lblPBD.Size = new System.Drawing.Size(127, 17);
             this.lblPBD.TabIndex = 11;
             this.lblPBD.Text = "Price Before Discount:";
             // 
             // lblDiscount
             // 
-            this.lblDiscount.Location = new System.Drawing.Point(716, 473);
+            this.lblDiscount.Location = new System.Drawing.Point(835, 619);
+            this.lblDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(64, 13);
+            this.lblDiscount.Size = new System.Drawing.Size(72, 17);
             this.lblDiscount.TabIndex = 12;
             this.lblDiscount.Text = "Discount(%):";
             // 
             // lblTotalPrice
             // 
-            this.lblTotalPrice.Location = new System.Drawing.Point(716, 509);
+            this.lblTotalPrice.Location = new System.Drawing.Point(835, 666);
+            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(56, 13);
+            this.lblTotalPrice.Size = new System.Drawing.Size(64, 17);
             this.lblTotalPrice.TabIndex = 13;
             this.lblTotalPrice.Text = "Total Price:";
             this.lblTotalPrice.Click += new System.EventHandler(this.labelControl3_Click);
             // 
             // ctrlCCN
             // 
-            this.ctrlCCN.Location = new System.Drawing.Point(243, 39);
+            this.ctrlCCN.Location = new System.Drawing.Point(283, 51);
+            this.ctrlCCN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlCCN.Name = "ctrlCCN";
-            this.ctrlCCN.Size = new System.Drawing.Size(100, 20);
+            this.ctrlCCN.Size = new System.Drawing.Size(117, 24);
             this.ctrlCCN.TabIndex = 14;
             this.ctrlCCN.EditValueChanged += new System.EventHandler(this.ctrlCCN_EditValueChanged);
             // 
             // lblCCN
             // 
-            this.lblCCN.Location = new System.Drawing.Point(53, 42);
+            this.lblCCN.Location = new System.Drawing.Point(62, 55);
+            this.lblCCN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblCCN.Name = "lblCCN";
-            this.lblCCN.Size = new System.Drawing.Size(123, 13);
+            this.lblCCN.Size = new System.Drawing.Size(143, 17);
             this.lblCCN.TabIndex = 15;
             this.lblCCN.Text = "Customer Card Number:";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(367, 36);
+            this.btnConfirm.Location = new System.Drawing.Point(428, 47);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(57, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(66, 30);
             this.btnConfirm.TabIndex = 16;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // colItemType2
+            // ctrlQuantity
             // 
-            this.colItemType2.Caption = "Item Type";
-            this.colItemType2.Name = "colItemType2";
-            this.colItemType2.Visible = true;
-            this.colItemType2.VisibleIndex = 6;
+            this.ctrlQuantity.Location = new System.Drawing.Point(565, 206);
+            this.ctrlQuantity.Name = "ctrlQuantity";
+            this.ctrlQuantity.Size = new System.Drawing.Size(125, 24);
+            this.ctrlQuantity.TabIndex = 17;
             // 
             // AddTransactionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 759);
+            this.ClientSize = new System.Drawing.Size(1443, 993);
+            this.Controls.Add(this.ctrlQuantity);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblCCN);
             this.Controls.Add(this.ctrlCCN);
@@ -399,9 +435,9 @@ namespace FuelStationApp.WUI {
             this.Controls.Add(this.lblChooseItem);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btQuantity);
-            this.Controls.Add(this.spinEdit1);
             this.Controls.Add(this.gridControl3);
             this.Controls.Add(this.gridControl2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddTransactionForm";
             this.Text = "AddTransaction";
             this.Load += new System.EventHandler(this.AddTransaction_Load);
@@ -410,11 +446,11 @@ namespace FuelStationApp.WUI {
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCCN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlQuantity.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,7 +462,6 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SpinEdit spinEdit1;
         private DevExpress.XtraEditors.SimpleButton btQuantity;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.LabelControl lblChooseItem;
@@ -458,5 +493,6 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repDelete;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private DevExpress.XtraGrid.Columns.GridColumn colItemType2;
+        private DevExpress.XtraEditors.TextEdit ctrlQuantity;
     }
 }

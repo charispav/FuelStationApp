@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using FuelStationApp.Impl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,10 @@ namespace FuelStationApp.WUI {
         public DataSet TransactionData { get; set; }
         public SqlConnection _SqlConnectionTrans { get; set; }
         public int  cardNumber { get; set; }
-        public int j { get; set; } = 0;
+
+        public Guid TransactionID { get; set; } = Guid.NewGuid();
     public AddTransactionForm(DataSet itemData, SqlConnection _sqlConnectionTrans) {
-        _SqlConnectionTrans = _sqlConnectionTrans;
+            _SqlConnectionTrans = _sqlConnectionTrans;
             ItemData = itemData;
             InitializeComponent();
 
@@ -28,7 +30,7 @@ namespace FuelStationApp.WUI {
         private void AddTransaction_Load(object sender, EventArgs e) {
             gridControl2.Visible = false;
             gridControl2.DataSource = ItemData.Tables[0];
-          
+            
 
         }
         public void getTransactionCustomer() {
@@ -55,18 +57,22 @@ namespace FuelStationApp.WUI {
           //  return true;
         }
         public void AddItems() {
-            TransactionData = new DataSet();
-            Guid selectedID = (Guid)gridView1.GetFocusedRowCellValue("ID");
-          
-            //DataRow selectedRow=ItemData.Tables[0].Select(String.Format("ID='{0}'", selectedID.ToString()))[0];
+            Guid itemId = (Guid)gridView1.GetFocusedRowCellValue("ID");
+            //string code = Convert.ToString(gridView1.GetFocusedRowCellValue("Code"));
+            Int16 itemType = Convert.ToInt16(gridView1.GetFocusedRowCellValue("ItemType"));
+            string description = Convert.ToString(gridView1.GetFocusedRowCellValue("Description"));
 
-            //for (int i = 0; i < selectedRow.ItemArray.Length; i++) {
+            string itemprice = Convert.ToDecimal(gridView1.GetFocusedRowCellValue("Price")).ToString().Replace(',','.');
+            string quantity = Convert.ToDecimal(ctrlQuantity.EditValue).ToString().Replace(',', '.');
+            Guid id = Guid.NewGuid();
+            string value = (Convert.ToDecimal(quantity) * Convert.ToDecimal(itemprice)).ToString().Replace(',','.');
+            SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO TransactionLine ([ID],[TransactionID],[ItemID],[Quantity],[ItemPrice],[Value],[Description],[ItemType]) VALUES ('{id}','{TransactionID}','{itemId}',{quantity},{itemprice},{value},'{description}',{itemType})", _SqlConnectionTrans);
 
-            //    TransactionData.Tables[0].Rows[j].ItemArray[i]= selectedRow.ItemArray[i];
+            adapter.Fill(TransactionData);
+           // SqlCommand command = new SqlCommand($"SELECT * FROM ")
 
-            //}
-            //j++;
-            //gridControl2.DataSource = TransactionData.Tables[0];
+            gridControl3.DataSource = TransactionData.Tables[0];
+
 
         }
 
@@ -91,12 +97,21 @@ namespace FuelStationApp.WUI {
         }
 
         private void simpleButton1_Click(object sender, EventArgs e) {
+            
             getTransactionCustomer();
         }
 
         private void btQuantity_Click(object sender, EventArgs e) {
        
           AddItems();
+        }
+
+        private void lblQuantity_Click(object sender, EventArgs e) {
+
+        }
+
+        private void ctrlQuantity_EditValueChanged(object sender, EventArgs e) {
+
         }
     }
 }
