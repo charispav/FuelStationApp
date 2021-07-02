@@ -60,6 +60,7 @@ namespace FuelStationApp.WUI {
             this.lblCCN = new DevExpress.XtraEditors.LabelControl();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.ctrlQuantity = new DevExpress.XtraEditors.TextEdit();
+            this.btnCalculate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
@@ -368,11 +369,21 @@ namespace FuelStationApp.WUI {
             this.ctrlQuantity.Size = new System.Drawing.Size(107, 20);
             this.ctrlQuantity.TabIndex = 17;
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(1042, 500);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(121, 32);
+            this.btnCalculate.TabIndex = 18;
+            this.btnCalculate.Text = "Calculate Total Price";
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
             // AddTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 759);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.ctrlQuantity);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblCCN);
@@ -446,5 +457,6 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private DevExpress.XtraGrid.Columns.GridColumn colItemType2;
         private DevExpress.XtraEditors.TextEdit ctrlQuantity;
+        private DevExpress.XtraEditors.SimpleButton btnCalculate;
     }
 }

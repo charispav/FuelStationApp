@@ -38,9 +38,12 @@ namespace FuelStationApp {
 
             GetTransactionData();
         }
-
+        public string transactionFocusedRow;
         private void openSelectedTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-
+            transactionFocusedRow = gridTransactions.GetFocusedRowCellValue("ID").ToString();
+            gridControl1.MainView = gridTransactionLine;
+            ribbonControl1.SelectedPage = actions;
+            
         }
 
         private void addTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -121,11 +124,15 @@ namespace FuelStationApp {
 
         //-------------------Transaction Line Events-------------------
         private void getTransactionLines_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-
+            GetTransactionLineData();
+            gridControl1.DataSource = MasterData.Tables[0];
         }
 
         private void getCustomerDetails_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-
+            SqlDataAdapter adapter= new SqlDataAdapter($"SELECT[Name],[Surname],[CardNumber] FROM CUSTOMERS LEFT JOIN[Transaction] ON Customers.ID = [Transaction].CustomerID WHERE[Transaction].ID ='{transactionFocusedRow}' ", _SqlConnection);
+            DataSet CustomerDetails = new DataSet();
+            adapter.Fill(CustomerDetails);
+            MessageBox.Show($"Name: '{CustomerDetails.Tables[0].Rows[0].ItemArray[0].ToString()}' \n Surname: '{CustomerDetails.Tables[0].Rows[0].ItemArray[1].ToString()}' \n Card Number: '{CustomerDetails.Tables[0].Rows[0].ItemArray[2].ToString()}'" );
         }
 
         private void addTransactionLine_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -137,7 +144,9 @@ namespace FuelStationApp {
         }
 
         private void deleteTransLine_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-
+            DeleteTransactionLine();
+            GetTransactionLineData();
+            
         }
 
 
@@ -375,7 +384,8 @@ namespace FuelStationApp {
 
             try {
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [TransactionId], [ItemID], [Quantity], [ItemPrice], [Value] FROM [TransactionLine]", _SqlConnection);
+              
+                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT [ID], [TransactionId], [ItemID], [Quantity], [ItemPrice], [Value] FROM [TransactionLine] WHERE TransactionId='{transactionFocusedRow}'", _SqlConnection);
 
                 MasterData = new DataSet();
                 MasterDataOld = new DataSet();
@@ -386,6 +396,8 @@ namespace FuelStationApp {
             catch (Exception) {
 
             }
+            gridControl1.MainView = gridTransactionLine;
+            gridControl1.DataSource = MasterData.Tables[0];
         }
 
         //TODO: GetTransactionCustomerDetails
@@ -400,7 +412,6 @@ namespace FuelStationApp {
 
                 object CellValue = gridTransactionLine.GetFocusedRowCellValue("ID");
                 Guid _id = (Guid)CellValue;
-                MessageBox.Show(_id.ToString());
                 SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM TransactionLine WHERE ID = '" + _id + "';", _SqlConnection);
                 adapter.Fill(MasterData);
 
@@ -549,6 +560,10 @@ namespace FuelStationApp {
 
         private void gridControl1_Click(object sender, EventArgs e) {
 
+        }
+
+        private void gridControl1_Load(object sender, EventArgs e) {
+            
         }
     }
 }

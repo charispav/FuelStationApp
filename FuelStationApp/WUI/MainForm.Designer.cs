@@ -57,14 +57,10 @@ namespace FuelStationApp {
             this.transactionCategory = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.actions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditTransactionLinesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.modifyTL = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveTLPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteTLPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.transactions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ViewAndEditTransactions = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyTransaction = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.saveTransactionChangesPG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.deleteTransactionPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.items = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditItems = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.modifyItems = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -447,8 +443,6 @@ namespace FuelStationApp {
             // 
             this.actions.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.viewAndEditTransactionLinesPageGroup,
-            this.modifyTL,
-            this.saveTLPageGroup,
             this.deleteTLPageGroup});
             this.actions.Name = "actions";
             this.actions.Text = "Actions";
@@ -460,18 +454,6 @@ namespace FuelStationApp {
             this.viewAndEditTransactionLinesPageGroup.Name = "viewAndEditTransactionLinesPageGroup";
             this.viewAndEditTransactionLinesPageGroup.Text = "View + Edit";
             // 
-            // modifyTL
-            // 
-            this.modifyTL.ItemLinks.Add(this.addTransactionLine);
-            this.modifyTL.Name = "modifyTL";
-            this.modifyTL.Text = "Modify";
-            // 
-            // saveTLPageGroup
-            // 
-            this.saveTLPageGroup.ItemLinks.Add(this.saveTransChanges);
-            this.saveTLPageGroup.Name = "saveTLPageGroup";
-            this.saveTLPageGroup.Text = "Save";
-            // 
             // deleteTLPageGroup
             // 
             this.deleteTLPageGroup.ItemLinks.Add(this.deleteTransLine);
@@ -482,9 +464,7 @@ namespace FuelStationApp {
             // 
             this.transactions.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ViewAndEditTransactions,
-            this.modifyTransaction,
-            this.saveTransactionChangesPG,
-            this.deleteTransactionPageGroup});
+            this.modifyTransaction});
             this.transactions.Name = "transactions";
             this.transactions.Text = "Transactions";
             // 
@@ -500,18 +480,6 @@ namespace FuelStationApp {
             this.modifyTransaction.ItemLinks.Add(this.addTransaction);
             this.modifyTransaction.Name = "modifyTransaction";
             this.modifyTransaction.Text = "Modify";
-            // 
-            // saveTransactionChangesPG
-            // 
-            this.saveTransactionChangesPG.ItemLinks.Add(this.saveTransaction);
-            this.saveTransactionChangesPG.Name = "saveTransactionChangesPG";
-            this.saveTransactionChangesPG.Text = "Save";
-            // 
-            // deleteTransactionPageGroup
-            // 
-            this.deleteTransactionPageGroup.ItemLinks.Add(this.deleteTransaction);
-            this.deleteTransactionPageGroup.Name = "deleteTransactionPageGroup";
-            this.deleteTransactionPageGroup.Text = "Delete";
             // 
             // items
             // 
@@ -662,6 +630,7 @@ namespace FuelStationApp {
             this.gridCustomers,
             this.gridEmployees,
             this.gridTransactionLine});
+            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // gridTransactions
@@ -1029,7 +998,7 @@ namespace FuelStationApp {
             // TransactionID
             // 
             this.TransactionID.Caption = "ID";
-            this.TransactionID.FieldName = "ID";
+            this.TransactionID.FieldName = "TransactionId";
             this.TransactionID.MinWidth = 25;
             this.TransactionID.Name = "TransactionID";
             this.TransactionID.Width = 94;
@@ -1037,7 +1006,7 @@ namespace FuelStationApp {
             // ItemiD
             // 
             this.ItemiD.Caption = "Item ID";
-            this.ItemiD.FieldName = "ID";
+            this.ItemiD.FieldName = "ItemID";
             this.ItemiD.MinWidth = 25;
             this.ItemiD.Name = "ItemiD";
             this.ItemiD.Width = 94;
@@ -1055,7 +1024,7 @@ namespace FuelStationApp {
             // ItemPrice
             // 
             this.ItemPrice.Caption = "Item Price";
-            this.ItemPrice.FieldName = "Price";
+            this.ItemPrice.FieldName = "ItemPrice";
             this.ItemPrice.MinWidth = 25;
             this.ItemPrice.Name = "ItemPrice";
             this.ItemPrice.Visible = true;
@@ -1132,7 +1101,6 @@ namespace FuelStationApp {
         private DevExpress.XtraBars.BarButtonItem getTransactions;
         private DevExpress.XtraBars.BarButtonItem deleteTransaction;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup modifyTransaction;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup deleteTransactionPageGroup;
         private FuelStationDBDataSet fuelStationDBDataSet;
         private System.Windows.Forms.BindingSource fuelStationDBDataSetBindingSource;
         private DevExpress.XtraGrid.GridControl gridControl1;
@@ -1196,8 +1164,6 @@ namespace FuelStationApp {
         private DevExpress.XtraBars.BarButtonItem saveCustomerChanges;
         private DevExpress.XtraBars.BarButtonItem saveEmployeeChanges;
         private DevExpress.XtraBars.BarButtonItem saveTransChanges;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveTLPageGroup;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup modifyTL;
         private DevExpress.XtraBars.BarButtonItem addTransactionLine;
         private DevExpress.XtraBars.BarButtonItem deleteTransLine;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup deleteTLPageGroup;
@@ -1212,7 +1178,6 @@ namespace FuelStationApp {
         private DevExpress.XtraBars.BarButtonItem saveCustomersChanges;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveCustomerPageGroup;
         private DevExpress.XtraBars.BarButtonItem saveTransaction;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveTransactionChangesPG;
         private DevExpress.XtraBars.BarButtonItem saveItemsChanges;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveItemsChangesPG;
         private DevExpress.XtraBars.BarButtonItem saveEmployeesChanges;

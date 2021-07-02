@@ -103,7 +103,7 @@ namespace FuelStationApp.WUI {
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, dateEdit3.EditValue, dateEdit4.EditValue, textEdit5.EditValue);
                     break;
                 case EntityTypeEnum.Item:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue, textEdit5.EditValue);
+                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue.ToString().Replace(',','.'), textEdit5.EditValue.ToString().Replace(',', '.'));
                     break;
                 case EntityTypeEnum.Ledger:
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), dateEdit1.EditValue, dateEdit2.EditValue);

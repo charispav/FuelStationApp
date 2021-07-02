@@ -18,7 +18,7 @@ namespace FuelStationApp.WUI {
         public DataSet TransactionData { get; set; }
         public SqlConnection _SqlConnectionTrans { get; set; }
         public int cardNumber { get; set; }
-        public DateTime TransactionDate { get; set; }
+        public string TransactionDate { get; set; }
         public Guid CustomerID { get; set; }
         public Guid TransactionID { get; set; }
         public decimal DiscountPercentage { get; set; }
@@ -35,7 +35,8 @@ namespace FuelStationApp.WUI {
             gridControl2.Visible = false;
             gridControl2.DataSource = ItemData.Tables[0];
             TransactionID = Guid.NewGuid();
-            TransactionDate = DateTime.Now;
+            TransactionDate = DateTime.Now.ToString("yyyyMMdd");
+            DiscountPercentage = 0;
             TotalValue = 0;
 
 
@@ -92,7 +93,7 @@ namespace FuelStationApp.WUI {
                 Guid id = Guid.NewGuid();
 
                 string value = (_value).ToString().Replace(',', '.');
-                if (itemType == "0" && _value>50) {
+                if (itemType == "0" && _value > 50) {
                     DiscountPercentage = 0.1m;
                 }
                 SqlCommand command = new SqlCommand("INSERT INTO TransactionLine ([ID],[TransactionID],[ItemID],[Quantity],[ItemPrice],[Value],[Description],[ItemType]) VALUES ('" + id + "','" + TransactionID + "','" + itemId + "','" + quantity + "','" + itemprice + "','" + value + "','" + description + "','" + itemType + "')", _SqlConnectionTrans);
@@ -111,7 +112,14 @@ namespace FuelStationApp.WUI {
                 MessageBox.Show("Only one item of Fuel Type is allowed!");
             }
 
-          //  FinalPriceAfterDiscount =
+
+        }
+        public void AddITransaction() {
+
+            SqlCommand command = new SqlCommand($"INSERT INTO [Transaction] ([ID],[Date],[CustomerID],[DiscountValue],[TotalValue]) VALUES ('{TransactionID}','{TransactionDate}','{CustomerID}','{FinalPriceAfterDiscount.ToString().Replace(',','.')}','{TotalValue.ToString().Replace(',', '.')}')", _SqlConnectionTrans);
+
+            command.CommandType = CommandType.Text;
+            command.ExecuteNonQuery();
         }
 
         private void labelControl3_Click(object sender, EventArgs e) {
@@ -127,7 +135,13 @@ namespace FuelStationApp.WUI {
         }
 
         private void btnOK_Click(object sender, EventArgs e) {
-
+            if(!string.IsNullOrEmpty(ctrlTotalPrice.EditValue.ToString())) { 
+            AddITransaction();
+            Close();
+            }
+            else {
+                MessageBox.Show("Please press the Calculate Button!");
+            }
         }
 
         private void ctrlCCN_Leave(object sender, EventArgs e) {
@@ -142,6 +156,7 @@ namespace FuelStationApp.WUI {
         private void btQuantity_Click(object sender, EventArgs e) {
 
             AddItems();
+
         }
 
         private void lblQuantity_Click(object sender, EventArgs e) {
@@ -150,6 +165,13 @@ namespace FuelStationApp.WUI {
 
         private void ctrlQuantity_EditValueChanged(object sender, EventArgs e) {
 
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e) {
+            FinalPriceAfterDiscount = TotalValue * (1 - DiscountPercentage);
+            ctrlTotalPrice.EditValue = FinalPriceAfterDiscount;
+            ctrlDiscount.EditValue = 100 * DiscountPercentage;
+            ctrlPBD.EditValue = TotalValue;
         }
     }
 }
