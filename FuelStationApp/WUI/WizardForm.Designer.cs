@@ -66,6 +66,7 @@ namespace FuelStationApp.WUI {
             this.welcomeWizardPage1.Size = new System.Drawing.Size(460, 300);
             this.welcomeWizardPage1.Text = "Connect to Database";
             this.welcomeWizardPage1.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.welcomeWizardPage1_PageValidating);
+            this.welcomeWizardPage1.Click += new System.EventHandler(this.welcomeWizardPage1_Click);
             // 
             // ctrlConnectionString
             // 

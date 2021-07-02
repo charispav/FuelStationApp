@@ -53,7 +53,7 @@ namespace FuelStationApp {
         }
 
         private void saveTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-
+            UpdateEntry("ID");
         }
 
         private void deleteTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
