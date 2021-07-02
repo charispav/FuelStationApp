@@ -229,7 +229,7 @@ namespace FuelStationApp {
                 string name = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[1]);
                 string surname = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[2]);
                 int cardNumber = Convert.ToInt32(MasterData.Tables[0].Rows[initialLength].ItemArray[3]);
-                //SqlDataAdapter adapter = new SqlDataAdapter("INSERT INTO Customers ([ID],[Name],[Surname],[CardNumber]) VALUES ('" + id + "' ,'" + name + "' ,'" + surname + "' ,"+ cardNumber + ");", _SqlConnection);
+
                 SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO Customers ([ID],[Name],[Surname],[CardNumber]) VALUES ('{id}','{name}','{surname}','{cardNumber}')", _SqlConnection);
 
                 adapter.Fill(MasterData);

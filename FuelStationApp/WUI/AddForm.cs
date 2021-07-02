@@ -23,12 +23,9 @@ namespace FuelStationApp.WUI {
         
         private void AddForm_Load(object sender, EventArgs e) {
             switch (_entity) {
-                case EntityTypeEnum.Transaction:
-                    break;
-                case EntityTypeEnum.TransactionLine:
-                    break;
+                
                 case EntityTypeEnum.Customer:
-
+                    this.Text = "Add Customer";
                     lblTitle.Text = "Add New Customer...";
                     label1.Text = "Name:";
                     label2.Text = "Surname:";
@@ -44,6 +41,7 @@ namespace FuelStationApp.WUI {
                     dateEdit4.Visible = false;
                     break;
                 case EntityTypeEnum.Employee:
+                    this.Text = "Add Employee";
                     lblTitle.Text = "Add New Employee...";
                     label1.Text = "Name:";
                     label2.Text = "Surname";
@@ -55,6 +53,7 @@ namespace FuelStationApp.WUI {
                     dateEdit2.Visible = false;
                     break;
                 case EntityTypeEnum.Item:
+                    this.Text = "Add Item";
                     lblTitle.Text = "Add New Item...";
                     label1.Text = "Code:";
                     label2.Text = "Description:";
@@ -70,6 +69,7 @@ namespace FuelStationApp.WUI {
                     dateEdit4.Visible = false;
                     break;
                 case EntityTypeEnum.Ledger:
+                    this.Text = "Add Ledger";
                     lblTitle.Text = "Add New Ledger...";
                     label1.Text = "Date From:";
                     label2.Text = "Date To:";
@@ -90,14 +90,8 @@ namespace FuelStationApp.WUI {
 
         private void btnOK_Click(object sender, EventArgs e) {
             switch (_entity) {
-                case EntityTypeEnum.Transaction:
-                    break;
-                case EntityTypeEnum.TransactionLine:
-                    break;
                 case EntityTypeEnum.Customer:
-                   
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(),textEdit1.EditValue, textEdit2.EditValue, textEdit3.EditValue);
-
                     break;
                 case EntityTypeEnum.Employee:
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, dateEdit3.EditValue, dateEdit4.EditValue, textEdit5.EditValue);

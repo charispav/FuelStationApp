@@ -62,8 +62,9 @@ namespace FuelStationApp.WUI {
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Appearance.BackColor = System.Drawing.Color.Purple;
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Location = new System.Drawing.Point(562, 398);
@@ -75,8 +76,9 @@ namespace FuelStationApp.WUI {
             // 
             // btnOK
             // 
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Appearance.BackColor = System.Drawing.Color.Purple;
-            this.btnOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.btnOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnOK.Appearance.Options.UseBackColor = true;
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.Location = new System.Drawing.Point(430, 398);
@@ -88,44 +90,56 @@ namespace FuelStationApp.WUI {
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(169, 81);
+            this.textEdit1.Location = new System.Drawing.Point(169, 79);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(219, 24);
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Size = new System.Drawing.Size(219, 26);
             this.textEdit1.TabIndex = 3;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(169, 133);
+            this.textEdit2.Location = new System.Drawing.Point(169, 131);
             this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(219, 24);
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Size = new System.Drawing.Size(219, 26);
             this.textEdit2.TabIndex = 4;
             // 
             // textEdit3
             // 
             this.textEdit3.Location = new System.Drawing.Point(169, 183);
             this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(219, 24);
+            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.textEdit3.Properties.Appearance.Options.UseFont = true;
+            this.textEdit3.Size = new System.Drawing.Size(219, 26);
             this.textEdit3.TabIndex = 5;
             // 
             // textEdit4
             // 
             this.textEdit4.Location = new System.Drawing.Point(169, 231);
             this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(219, 24);
+            this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.textEdit4.Properties.Appearance.Options.UseFont = true;
+            this.textEdit4.Size = new System.Drawing.Size(219, 26);
             this.textEdit4.TabIndex = 6;
             // 
             // textEdit5
             // 
             this.textEdit5.Location = new System.Drawing.Point(169, 282);
             this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(219, 24);
+            this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.textEdit5.Properties.Appearance.Options.UseFont = true;
+            this.textEdit5.Size = new System.Drawing.Size(219, 26);
             this.textEdit5.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(63, 88);
+            this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label1.Appearance.Options.UseFont = true;
+            this.label1.Location = new System.Drawing.Point(63, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 17);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 8;
             this.label1.Text = "label1";
             // 
@@ -133,76 +147,90 @@ namespace FuelStationApp.WUI {
             // 
             this.comboBoxEdit1.Location = new System.Drawing.Point(169, 183);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit1.Size = new System.Drawing.Size(219, 24);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(219, 26);
             this.comboBoxEdit1.TabIndex = 13;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(63, 286);
+            this.label5.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label5.Appearance.Options.UseFont = true;
+            this.label5.Location = new System.Drawing.Point(63, 285);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 17);
+            this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 12;
             this.label5.Text = "label5";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(63, 235);
+            this.label4.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label4.Appearance.Options.UseFont = true;
+            this.label4.Location = new System.Drawing.Point(63, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 17);
+            this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "label4";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(63, 190);
+            this.label3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Appearance.Options.UseFont = true;
+            this.label3.Location = new System.Drawing.Point(63, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 17);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "label3";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(63, 140);
+            this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label2.Appearance.Options.UseFont = true;
+            this.label2.Location = new System.Drawing.Point(63, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 17);
+            this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
             // 
             // lblTitle
             // 
-            this.lblTitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lblTitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblTitle.Appearance.Options.UseFont = true;
-            this.lblTitle.Location = new System.Drawing.Point(63, 24);
+            this.lblTitle.Location = new System.Drawing.Point(41, 23);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(43, 28);
+            this.lblTitle.Size = new System.Drawing.Size(48, 31);
             this.lblTitle.TabIndex = 14;
             this.lblTitle.Text = "Title";
             // 
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(169, 81);
+            this.dateEdit1.Location = new System.Drawing.Point(169, 79);
             this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit1.Size = new System.Drawing.Size(219, 26);
             this.dateEdit1.TabIndex = 15;
             // 
             // dateEdit2
             // 
             this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(169, 133);
+            this.dateEdit2.Location = new System.Drawing.Point(169, 131);
             this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
             this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit2.Size = new System.Drawing.Size(219, 26);
             this.dateEdit2.TabIndex = 16;
             // 
             // dateEdit3
@@ -210,11 +238,13 @@ namespace FuelStationApp.WUI {
             this.dateEdit3.EditValue = null;
             this.dateEdit3.Location = new System.Drawing.Point(169, 183);
             this.dateEdit3.Name = "dateEdit3";
+            this.dateEdit3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.dateEdit3.Properties.Appearance.Options.UseFont = true;
             this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit3.Size = new System.Drawing.Size(219, 26);
             this.dateEdit3.TabIndex = 17;
             // 
             // dateEdit4
@@ -222,11 +252,13 @@ namespace FuelStationApp.WUI {
             this.dateEdit4.EditValue = null;
             this.dateEdit4.Location = new System.Drawing.Point(169, 231);
             this.dateEdit4.Name = "dateEdit4";
+            this.dateEdit4.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.dateEdit4.Properties.Appearance.Options.UseFont = true;
             this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Size = new System.Drawing.Size(219, 24);
+            this.dateEdit4.Size = new System.Drawing.Size(219, 26);
             this.dateEdit4.TabIndex = 18;
             // 
             // AddForm

@@ -33,12 +33,13 @@ namespace FuelStationApp.WUI {
 
         private void AddTransaction_Load(object sender, EventArgs e) {
             gridControl2.Visible = false;
+            lblChooseItem.Visible = false;
             gridControl2.DataSource = ItemData.Tables[0];
             TransactionID = Guid.NewGuid();
             TransactionDate = DateTime.Now.ToString("yyyyMMdd");
             DiscountPercentage = 0;
             TotalValue = 0;
-
+           
 
         }
         public void GetTransactionCustomer() {
@@ -52,21 +53,9 @@ namespace FuelStationApp.WUI {
                 adapter.Fill(CustomerData);
                 CustomerID = (Guid)CustomerData.Tables[0].Rows[0].ItemArray[0];
 
-                //if (!string.IsNullOrEmpty(Convert.ToString(CustomerData.Tables[0].Rows[0].ItemArray[0]))) {
-                //    for (int i = 0; i < ItemData.Tables[0].Rows.Count; i++) {
-                //        Convert.ToString(ItemData.Tables[0].Rows[i].ItemArray[2]);
-                //        switch (ItemData.Tables[0].Rows[i].ItemArray[2]) {
-                //            case 0 :
-                //                ItemData.Tables[0].Rows[i].ItemArray[2] = "Fuel";
-                //            default:
-                //                break;
-                //        }
-
-                //    }
+               
                 gridControl2.Visible = true;
-
-                // }
-
+                lblChooseItem.Visible = true;
             }
             catch (Exception) {
                 MessageBox.Show("Customer not found");
@@ -172,6 +161,10 @@ namespace FuelStationApp.WUI {
             ctrlTotalPrice.EditValue = FinalPriceAfterDiscount;
             ctrlDiscount.EditValue = 100 * DiscountPercentage;
             ctrlPBD.EditValue = TotalValue;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            Close();
         }
     }
 }

@@ -11,8 +11,6 @@ namespace FuelStationApp.Impl {
         public Entity() {
             ID = Guid.NewGuid();
         }
-        public Entity(Guid id) {
-            ID = id;
-        }
+       
     }
 }

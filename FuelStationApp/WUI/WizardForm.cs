@@ -74,10 +74,8 @@ namespace FuelStationApp.WUI {
 
         public bool SqlConnect() {
 
-            //SqlConnection = new SqlConnection(Convert.ToString(ctrlConnectionString.EditValue));
-           // SqlConnection = new SqlConnection("data source=LAPTOP-VB1FTM5C;initial catalog=FuelStation;trusted_connection=true;");
-SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStationDB;Integrated Security=True;");///////////
-            //SqlConnection = new SqlConnection(@"Data Source=.;Initial Catalog=FuelStation;Integrated Security=True;");
+            SqlConnection = new SqlConnection(Convert.ToString(ctrlConnectionString.EditValue));
+           
             try {
                 SqlConnection.Open();
             }
