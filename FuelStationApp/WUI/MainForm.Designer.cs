@@ -54,6 +54,7 @@ namespace FuelStationApp {
             this.saveTransaction = new DevExpress.XtraBars.BarButtonItem();
             this.saveItemsChanges = new DevExpress.XtraBars.BarButtonItem();
             this.saveEmployeesChanges = new DevExpress.XtraBars.BarButtonItem();
+            this.showLedger2 = new DevExpress.XtraBars.BarButtonItem();
             this.transactionCategory = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.actions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.viewAndEditTransactionLinesPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,6 +77,8 @@ namespace FuelStationApp {
             this.modifyEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.saveEmployeePG = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.deleteEmployeePageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ledger = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.viewLedgerPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -175,9 +178,10 @@ namespace FuelStationApp {
             this.saveCustomersChanges,
             this.saveTransaction,
             this.saveItemsChanges,
-            this.saveEmployeesChanges});
+            this.saveEmployeesChanges,
+            this.showLedger2});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 38;
+            this.ribbonControl1.MaxItemId = 39;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.transactionCategory});
@@ -185,7 +189,8 @@ namespace FuelStationApp {
             this.transactions,
             this.items,
             this.customers,
-            this.employees});
+            this.employees,
+            this.ledger});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
@@ -432,6 +437,15 @@ namespace FuelStationApp {
             this.saveEmployeesChanges.Name = "saveEmployeesChanges";
             this.saveEmployeesChanges.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveEmployeesChanges_ItemClick);
             // 
+            // showLedger2
+            // 
+            this.showLedger2.Caption = "Show Ledger";
+            this.showLedger2.Id = 38;
+            this.showLedger2.ImageOptions.Image = global::FuelStationApp.Resources.showallsubtotalsattoppivottable_16x166;
+            this.showLedger2.ImageOptions.LargeImage = global::FuelStationApp.Resources.showallsubtotalsattoppivottable_32x326;
+            this.showLedger2.Name = "showLedger2";
+            this.showLedger2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.showLedger2_ItemClick);
+            // 
             // transactionCategory
             // 
             this.transactionCategory.Name = "transactionCategory";
@@ -583,6 +597,19 @@ namespace FuelStationApp {
             this.deleteEmployeePageGroup.ItemLinks.Add(this.deleteEmployee);
             this.deleteEmployeePageGroup.Name = "deleteEmployeePageGroup";
             this.deleteEmployeePageGroup.Text = "Delete";
+            // 
+            // ledger
+            // 
+            this.ledger.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.viewLedgerPageGroup});
+            this.ledger.Name = "ledger";
+            this.ledger.Text = "Ledger";
+            // 
+            // viewLedgerPageGroup
+            // 
+            this.viewLedgerPageGroup.ItemLinks.Add(this.showLedger2);
+            this.viewLedgerPageGroup.Name = "viewLedgerPageGroup";
+            this.viewLedgerPageGroup.Text = "View";
             // 
             // repositoryItemPictureEdit1
             // 
@@ -1185,6 +1212,9 @@ namespace FuelStationApp {
         private DevExpress.XtraBars.BarButtonItem saveEmployeesChanges;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup saveEmployeePG;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repEnum;
+        private DevExpress.XtraBars.BarButtonItem showLedger2;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ledger;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup viewLedgerPageGroup;
     }
 }
 

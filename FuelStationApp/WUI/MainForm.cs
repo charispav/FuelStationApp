@@ -132,7 +132,7 @@ namespace FuelStationApp {
             SqlDataAdapter adapter= new SqlDataAdapter($"SELECT[Name],[Surname],[CardNumber] FROM CUSTOMERS LEFT JOIN[Transaction] ON Customers.ID = [Transaction].CustomerID WHERE[Transaction].ID ='{transactionFocusedRow}' ", _SqlConnection);
             DataSet CustomerDetails = new DataSet();
             adapter.Fill(CustomerDetails);
-            MessageBox.Show($"Name: '{CustomerDetails.Tables[0].Rows[0].ItemArray[0].ToString()}' \n Surname: '{CustomerDetails.Tables[0].Rows[0].ItemArray[1].ToString()}' \n Card Number: '{CustomerDetails.Tables[0].Rows[0].ItemArray[2].ToString()}'" );
+            MessageBox.Show($"Name: '{CustomerDetails.Tables[0].Rows[0].ItemArray[0].ToString()}'\nSurname: '{CustomerDetails.Tables[0].Rows[0].ItemArray[1].ToString()}'\nCard Number: '{CustomerDetails.Tables[0].Rows[0].ItemArray[2].ToString()}'" );
         }
 
         private void addTransactionLine_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -149,7 +149,9 @@ namespace FuelStationApp {
             
         }
 
-
+        private void showLedger2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            GetLedgerData();
+        }
         #endregion
 
         #region CRUD Transactions
@@ -169,26 +171,6 @@ namespace FuelStationApp {
             gridControl1.DataSource = MasterData.Tables[0];
 
         }
-
-        //TODO: Add Transaction
-
-
-        private void DeleteTransaction() {
-
-            try {
-
-                object CellValue = gridTransactions.GetFocusedRowCellValue("ID");
-                Guid _id = (Guid)CellValue;
-                MessageBox.Show(_id.ToString());
-                SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Transaction WHERE ID = '" + _id + "';", _SqlConnection);
-                adapter.Fill(MasterData);
-
-            }
-            catch (Exception) {
-
-            }
-        }
-
 
         #endregion
 
@@ -424,39 +406,40 @@ namespace FuelStationApp {
 
         #region CRUD Ledger
         private void GetLedgerData() {
-            //GetEmployeeData();
-            // int initialLength = MasterData.Tables[0].Rows.Count;
+            decimal rent = 5000m;
+
+            MasterData = new DataSet();
+            MasterData.Tables.Add("Ledger");
+            MasterData.Tables["Ledger"].Columns.Add("DateFrom");
+            MasterData.Tables["Ledger"].Columns.Add("DateTo");
+            MasterData.Tables["Ledger"].Columns.Add("Income");
+            MasterData.Tables["Ledger"].Columns.Add("Expenses");
+            MasterData.Tables["Ledger"].Columns.Add("Total");
             AddForm addForm = new AddForm(EntityTypeEnum.Ledger);
             addForm._MasterData = MasterData;
+            addForm.SqlConnectionAddForm = _SqlConnection;
             addForm.ShowDialog();
+            
+        
+            
 
 
-            try {
-                MasterData = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [ID], [DateFrom], [DateTo], [Income], [Expences], [Total] FROM [Ledger]", _SqlConnection);
-                adapter.Fill(MasterData);
 
-            }
-            catch (Exception) {
 
-            }
+
+
+
+
+
+
+            gridControl1.MainView = gridLedger;
+            gridControl1.DataSource = MasterData.Tables["Ledger"];
+
+
+           
         }
 
-        private void DeleteLedger() {
-
-            try {
-
-                object CellValue = gridLedger.GetFocusedRowCellValue("ID");
-                Guid _id = (Guid)CellValue;
-                MessageBox.Show(_id.ToString());
-                SqlDataAdapter adapter = new SqlDataAdapter("DELETE FROM Ledger WHERE ID = '" + _id + "';", _SqlConnection);
-                adapter.Fill(MasterData);
-
-            }
-            catch (Exception) {
-
-            }
-        }
+       
 
         #endregion
 
@@ -548,7 +531,7 @@ namespace FuelStationApp {
 
                     sqlLine.Add(string.Format("{0}={1}", columnName, decimalPart));
                     break;
-                case "ItemTypeEnum":
+                case "Int16":
                     ItemTypeEnum enumVal = (ItemTypeEnum)value;
                     sqlLine.Add(string.Format("{0}={1}", columnName, Convert.ToInt16(enumVal)));
                     break;
@@ -565,5 +548,7 @@ namespace FuelStationApp {
         private void gridControl1_Load(object sender, EventArgs e) {
             
         }
+
+        
     }
 }

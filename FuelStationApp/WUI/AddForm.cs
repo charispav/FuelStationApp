@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace FuelStationApp.WUI {
     public partial class AddForm : DevExpress.XtraEditors.XtraForm {
 
         public DataSet _MasterData { get; set; }
+        public SqlConnection SqlConnectionAddForm { get; set; }
         public EntityTypeEnum _entity { get; set; }
         public AddForm(EntityTypeEnum entity) {
             _entity = entity;
@@ -92,21 +94,63 @@ namespace FuelStationApp.WUI {
             switch (_entity) {
                 case EntityTypeEnum.Customer:
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(),textEdit1.EditValue, textEdit2.EditValue, textEdit3.EditValue);
+                    DialogResult = DialogResult.OK;
+                    Close();
                     break;
                 case EntityTypeEnum.Employee:
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, dateEdit3.EditValue, dateEdit4.EditValue, textEdit5.EditValue);
+                    DialogResult = DialogResult.OK;
+                    Close();
                     break;
                 case EntityTypeEnum.Item:
                     _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue.ToString().Replace(',','.'), textEdit5.EditValue.ToString().Replace(',', '.'));
+                    DialogResult = DialogResult.OK;
+                    Close();
                     break;
                 case EntityTypeEnum.Ledger:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), dateEdit1.EditValue, dateEdit2.EditValue);
+                    decimal rent = 5000m;
+                    decimal rentPerDay = rent / 30;
+                    
+                    string startDate = Convert.ToDateTime(dateEdit1.EditValue).ToString("yyyyMMdd");
+                    string endDate = Convert.ToDateTime(dateEdit2.EditValue).ToString("yyyyMMdd");
+                    
+                    if (Convert.ToDateTime(dateEdit1.EditValue) < Convert.ToDateTime(dateEdit2.EditValue)) {
+                        
+                        
+                        int days = (Convert.ToDateTime(dateEdit2.EditValue) - Convert.ToDateTime(dateEdit1.EditValue)).Days;
+                        //Expenses:
+                        decimal expenses=0m;
+                        decimal totalRent = days * rentPerDay;
+
+                        SqlDataAdapter adapter = new SqlDataAdapter($"SELECT SUM( CASE WHEN dateStart <= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', '{endDate}')) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, '{endDate}')) * (salary / 25) WHEN dateStart <= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', dateEnd)) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, dateEnd)) * (salary / 25) END) FROM Employee WHERE(DateStart <= '{endDate}' and DateEnd >= '{startDate}')", SqlConnectionAddForm);
+                        DataTable employeeExpenses = new DataTable();
+                        adapter.Fill(employeeExpenses);
+
+
+
+
+                        //Income:
+                        decimal income = 0m;
+
+
+
+
+                        //Total:
+                        decimal total = income - expenses;
+
+                        DialogResult = DialogResult.OK;
+                        Close();
+                        
+                    }
+                    else { 
+                        MessageBox.Show("Start Date is greater than end date!");
+                    }
+
                     break;
                 default:
                     break;
             }
-            DialogResult = DialogResult.OK;
-            Close();
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {

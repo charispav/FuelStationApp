@@ -592,6 +592,16 @@ namespace FuelStationApp {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap showallsubtotalsattoppivottable_16x166 {
+            get {
+                object obj = ResourceManager.GetObject("showallsubtotalsattoppivottable_16x166", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap showallsubtotalsattoppivottable_32x32 {
             get {
                 object obj = ResourceManager.GetObject("showallsubtotalsattoppivottable_32x32", resourceCulture);
@@ -645,6 +655,16 @@ namespace FuelStationApp {
         internal static System.Drawing.Bitmap showallsubtotalsattoppivottable_32x325 {
             get {
                 object obj = ResourceManager.GetObject("showallsubtotalsattoppivottable_32x325", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap showallsubtotalsattoppivottable_32x326 {
+            get {
+                object obj = ResourceManager.GetObject("showallsubtotalsattoppivottable_32x326", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
