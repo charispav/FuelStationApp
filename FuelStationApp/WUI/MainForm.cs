@@ -40,10 +40,16 @@ namespace FuelStationApp {
         }
         public string transactionFocusedRow;
         private void openSelectedTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
-            transactionFocusedRow = gridTransactions.GetFocusedRowCellValue("ID").ToString();
-            gridControl1.MainView = gridTransactionLine;
-            ribbonControl1.SelectedPage = actions;
-            
+
+            if (gridTransactions.GetFocusedRowCellValue("ID") != null) {
+                transactionFocusedRow = gridTransactions.GetFocusedRowCellValue("ID").ToString();
+                gridControl1.MainView = gridTransactionLine;
+                ribbonControl1.SelectedPage = actions;
+            }
+            else {
+                MessageBox.Show("Νo line selected");
+
+            }
         }
 
         private void addTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
