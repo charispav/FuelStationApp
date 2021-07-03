@@ -406,8 +406,7 @@ namespace FuelStationApp {
 
         #region CRUD Ledger
         private void GetLedgerData() {
-            decimal rent = 5000m;
-
+            
             MasterData = new DataSet();
             MasterData.Tables.Add("Ledger");
             MasterData.Tables["Ledger"].Columns.Add("DateFrom");
@@ -419,18 +418,6 @@ namespace FuelStationApp {
             addForm._MasterData = MasterData;
             addForm.SqlConnectionAddForm = _SqlConnection;
             addForm.ShowDialog();
-            
-        
-            
-
-
-
-
-
-
-
-
-
 
             gridControl1.MainView = gridLedger;
             gridControl1.DataSource = MasterData.Tables["Ledger"];

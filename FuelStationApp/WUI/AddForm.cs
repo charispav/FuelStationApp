@@ -109,7 +109,8 @@ namespace FuelStationApp.WUI {
                     break;
                 case EntityTypeEnum.Ledger:
                     decimal rent = 5000m;
-                    decimal rentPerDay = rent / 30;
+                    decimal rentPerDay = 0m;
+                   rentPerDay = rent / 30;
                     
                     string startDate = Convert.ToDateTime(dateEdit1.EditValue).ToString("yyyyMMdd");
                     string endDate = Convert.ToDateTime(dateEdit2.EditValue).ToString("yyyyMMdd");
@@ -120,24 +121,37 @@ namespace FuelStationApp.WUI {
                         int days = (Convert.ToDateTime(dateEdit2.EditValue) - Convert.ToDateTime(dateEdit1.EditValue)).Days;
                         //Expenses:
                         decimal expenses=0m;
-                        decimal totalRent = days * rentPerDay;
+                        decimal totalRent = 0m;
+                        totalRent = days * rentPerDay;
 
                         SqlDataAdapter adapter = new SqlDataAdapter($"SELECT SUM( CASE WHEN dateStart <= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', '{endDate}')) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, '{endDate}')) * (salary / 25) WHEN dateStart <= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', dateEnd)) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, dateEnd)) * (salary / 25) END) FROM Employee WHERE(DateStart <= '{endDate}' and DateEnd >= '{startDate}')", SqlConnectionAddForm);
                         DataTable employeeExpenses = new DataTable();
                         adapter.Fill(employeeExpenses);
 
-
-
+                        SqlDataAdapter adapterTransactionExpenses = new SqlDataAdapter($"SELECT Sum(Cost *Quantity) AS TotalCost FROM Items RIGHT JOIN (SELECT TransactionId, ItemID, Quantity  FROM[TransactionLine] LEFT JOIN[Transaction] ON[TransactionLine].TransactionId =[Transaction].ID WHERE Date BETWEEN '{startDate}' AND '{endDate}') A ON A.ItemID = Items.ID", SqlConnectionAddForm);
+                        DataTable transactionExpenses = new DataTable();
+                        adapterTransactionExpenses.Fill(transactionExpenses);
+                        expenses= totalRent + Convert.ToDecimal(employeeExpenses.Rows[0].ItemArray[0])+ Convert.ToDecimal(transactionExpenses.Rows[0].ItemArray[0]);
 
                         //Income:
                         decimal income = 0m;
 
-
-
-
+                        SqlDataAdapter adapterIncome = new SqlDataAdapter($"SELECT SUM(DiscountValue) FROM [Transaction] WHERE Date BETWEEN '{startDate}' AND '{endDate}'", SqlConnectionAddForm);
+                        DataTable transactionIncome = new DataTable();
+                        adapterIncome.Fill(transactionIncome);
+                        income = Convert.ToDecimal(transactionIncome.Rows[0].ItemArray[0]);
                         //Total:
                         decimal total = income - expenses;
+                        DataRow row = _MasterData.Tables["Ledger"].NewRow();
+                       
+                        _MasterData.Tables["Ledger"].Rows.Add(row);
+                        row["DateFrom"] = Convert.ToDateTime(dateEdit1.EditValue).ToString("yyyyMMdd");
+                        row["DateTo"] = Convert.ToDateTime(dateEdit2.EditValue).ToString("yyyyMMdd");
+                        row["Income"] = income.ToString("0.00");
+                        row["Expenses"] = expenses.ToString("0.00");
+                        row["Total"] = total.ToString("0.00");
 
+                       
                         DialogResult = DialogResult.OK;
                         Close();
                         
