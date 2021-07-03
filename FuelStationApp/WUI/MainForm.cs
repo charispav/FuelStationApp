@@ -165,7 +165,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No Transaction Data for loading");
             }
             gridControl1.MainView = gridTransactions;
             gridControl1.DataSource = MasterData.Tables[0];
@@ -189,7 +189,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No Customer Data for loading");
             }
 
 
@@ -253,7 +253,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No Item Data for loading");
             }
             gridControl1.MainView = gridItems;
             gridControl1.DataSource = MasterData.Tables[0];
@@ -314,7 +314,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No Employee Data for loading");
             }
             gridControl1.MainView = gridEmployees;
             gridControl1.DataSource = MasterData.Tables[0];
@@ -376,7 +376,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No Transaction Line Data for loading");
             }
             gridControl1.MainView = gridTransactionLine;
             gridControl1.DataSource = MasterData.Tables[0];
@@ -399,7 +399,7 @@ namespace FuelStationApp {
 
             }
             catch (Exception) {
-
+                MessageBox.Show("No record selected!");
             }
         }
         #endregion

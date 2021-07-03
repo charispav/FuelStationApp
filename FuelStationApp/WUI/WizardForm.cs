@@ -80,7 +80,7 @@ namespace FuelStationApp.WUI {
                 SqlConnection.Open();
             }
             catch (Exception) {
-               
+                MessageBox.Show("Error Establishing a Database Connection");
             }
             return SqlConnection.State == ConnectionState.Open;
         }

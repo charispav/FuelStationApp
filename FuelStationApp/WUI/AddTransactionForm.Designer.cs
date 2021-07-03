@@ -76,12 +76,10 @@ namespace FuelStationApp.WUI {
             // 
             // gridControl2
             // 
-            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl2.Location = new System.Drawing.Point(30, 156);
+            this.gridControl2.Location = new System.Drawing.Point(26, 119);
             this.gridControl2.MainView = this.gridView1;
-            this.gridControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(440, 438);
+            this.gridControl2.Size = new System.Drawing.Size(377, 335);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -96,7 +94,6 @@ namespace FuelStationApp.WUI {
             this.colDescription,
             this.colItemType,
             this.colPrice});
-            this.gridView1.DetailHeight = 458;
             this.gridView1.GridControl = this.gridControl2;
             this.gridView1.Name = "gridView1";
             // 
@@ -104,68 +101,54 @@ namespace FuelStationApp.WUI {
             // 
             this.colID.Caption = "ID";
             this.colID.FieldName = "ID";
-            this.colID.MinWidth = 23;
             this.colID.Name = "colID";
-            this.colID.Width = 87;
             // 
             // colCost
             // 
             this.colCost.Caption = "Cost";
             this.colCost.FieldName = "Cost";
-            this.colCost.MinWidth = 23;
             this.colCost.Name = "colCost";
-            this.colCost.Width = 87;
             // 
             // colCode
             // 
             this.colCode.Caption = "Code";
             this.colCode.FieldName = "Code";
-            this.colCode.MinWidth = 23;
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 0;
-            this.colCode.Width = 87;
             // 
             // colDescription
             // 
             this.colDescription.Caption = "Description";
             this.colDescription.FieldName = "Description";
-            this.colDescription.MinWidth = 23;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 87;
             // 
             // colItemType
             // 
             this.colItemType.Caption = "ItemType";
             this.colItemType.FieldName = "ItemType";
-            this.colItemType.MinWidth = 23;
             this.colItemType.Name = "colItemType";
             this.colItemType.Visible = true;
             this.colItemType.VisibleIndex = 2;
-            this.colItemType.Width = 87;
             // 
             // colPrice
             // 
             this.colPrice.Caption = "Price";
             this.colPrice.FieldName = "Price";
-            this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 3;
-            this.colPrice.Width = 87;
             // 
             // gridControl3
             // 
-            this.gridControl3.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl3.Location = new System.Drawing.Point(790, 156);
+            this.gridControl3.Location = new System.Drawing.Point(677, 119);
             this.gridControl3.MainView = this.gridView2;
-            this.gridControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl3.Name = "gridControl3";
             this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDelete});
-            this.gridControl3.Size = new System.Drawing.Size(589, 438);
+            this.gridControl3.Size = new System.Drawing.Size(505, 335);
             this.gridControl3.TabIndex = 1;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -183,98 +166,77 @@ namespace FuelStationApp.WUI {
             this.colValue,
             this.colItemType2,
             this.colDelete});
-            this.gridView2.DetailHeight = 458;
             this.gridView2.GridControl = this.gridControl3;
             this.gridView2.Name = "gridView2";
             // 
             // colCode2
             // 
             this.colCode2.Caption = "Code";
-            this.colCode2.MinWidth = 23;
             this.colCode2.Name = "colCode2";
-            this.colCode2.Width = 87;
             // 
             // colDescription2
             // 
             this.colDescription2.Caption = "Description";
             this.colDescription2.FieldName = "Description";
-            this.colDescription2.MinWidth = 23;
             this.colDescription2.Name = "colDescription2";
             this.colDescription2.Visible = true;
             this.colDescription2.VisibleIndex = 0;
-            this.colDescription2.Width = 87;
             // 
             // colID2
             // 
             this.colID2.Caption = "ID";
             this.colID2.FieldName = "ID";
-            this.colID2.MinWidth = 23;
             this.colID2.Name = "colID2";
-            this.colID2.Width = 87;
             // 
             // colTransactionID2
             // 
             this.colTransactionID2.Caption = "TransactionID";
             this.colTransactionID2.FieldName = "TransactionID";
-            this.colTransactionID2.MinWidth = 23;
             this.colTransactionID2.Name = "colTransactionID2";
-            this.colTransactionID2.Width = 87;
             // 
             // colItemID2
             // 
             this.colItemID2.Caption = "ItemID";
             this.colItemID2.FieldName = "ItemID";
-            this.colItemID2.MinWidth = 23;
             this.colItemID2.Name = "colItemID2";
-            this.colItemID2.Width = 87;
             // 
             // colQuantity
             // 
             this.colQuantity.Caption = "Quantity";
             this.colQuantity.FieldName = "Quantity";
-            this.colQuantity.MinWidth = 23;
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.Visible = true;
             this.colQuantity.VisibleIndex = 1;
-            this.colQuantity.Width = 87;
             // 
             // colItemPrice
             // 
             this.colItemPrice.Caption = "Item Price";
             this.colItemPrice.FieldName = "ItemPrice";
-            this.colItemPrice.MinWidth = 23;
             this.colItemPrice.Name = "colItemPrice";
             this.colItemPrice.Visible = true;
             this.colItemPrice.VisibleIndex = 2;
-            this.colItemPrice.Width = 87;
             // 
             // colValue
             // 
             this.colValue.Caption = "Value";
             this.colValue.FieldName = "Value";
-            this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
             this.colValue.VisibleIndex = 3;
-            this.colValue.Width = 87;
             // 
             // colItemType2
             // 
             this.colItemType2.Caption = "Item Type";
             this.colItemType2.FieldName = "ItemType";
-            this.colItemType2.MinWidth = 23;
             this.colItemType2.Name = "colItemType2";
             this.colItemType2.Visible = true;
             this.colItemType2.VisibleIndex = 4;
-            this.colItemType2.Width = 87;
             // 
             // colDelete
             // 
             this.colDelete.Caption = "Delete";
             this.colDelete.ColumnEdit = this.repDelete;
-            this.colDelete.MinWidth = 23;
             this.colDelete.Name = "colDelete";
-            this.colDelete.Width = 87;
             // 
             // repDelete
             // 
@@ -290,10 +252,9 @@ namespace FuelStationApp.WUI {
             this.btQuantity.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btQuantity.Appearance.Options.UseBackColor = true;
             this.btQuantity.Appearance.Options.UseFont = true;
-            this.btQuantity.Location = new System.Drawing.Point(591, 367);
-            this.btQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btQuantity.Location = new System.Drawing.Point(507, 281);
             this.btQuantity.Name = "btQuantity";
-            this.btQuantity.Size = new System.Drawing.Size(125, 54);
+            this.btQuantity.Size = new System.Drawing.Size(107, 41);
             this.btQuantity.TabIndex = 3;
             this.btQuantity.Text = "Add Item(s)";
             this.btQuantity.Click += new System.EventHandler(this.btQuantity_Click);
@@ -305,10 +266,9 @@ namespace FuelStationApp.WUI {
             this.btnOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnOK.Appearance.Options.UseBackColor = true;
             this.btnOK.Appearance.Options.UseFont = true;
-            this.btnOK.Location = new System.Drawing.Point(1143, 879);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOK.Location = new System.Drawing.Point(1043, 715);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(145, 45);
+            this.btnOK.Size = new System.Drawing.Size(124, 34);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -317,10 +277,9 @@ namespace FuelStationApp.WUI {
             // 
             this.lblChooseItem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblChooseItem.Appearance.Options.UseFont = true;
-            this.lblChooseItem.Location = new System.Drawing.Point(30, 125);
-            this.lblChooseItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblChooseItem.Location = new System.Drawing.Point(26, 96);
             this.lblChooseItem.Name = "lblChooseItem";
-            this.lblChooseItem.Size = new System.Drawing.Size(101, 23);
+            this.lblChooseItem.Size = new System.Drawing.Size(81, 19);
             this.lblChooseItem.TabIndex = 5;
             this.lblChooseItem.Text = "Choose Item:";
             // 
@@ -328,10 +287,9 @@ namespace FuelStationApp.WUI {
             // 
             this.lblTransaction.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblTransaction.Appearance.Options.UseFont = true;
-            this.lblTransaction.Location = new System.Drawing.Point(790, 125);
-            this.lblTransaction.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblTransaction.Location = new System.Drawing.Point(677, 96);
             this.lblTransaction.Name = "lblTransaction";
-            this.lblTransaction.Size = new System.Drawing.Size(88, 23);
+            this.lblTransaction.Size = new System.Drawing.Size(70, 19);
             this.lblTransaction.TabIndex = 6;
             this.lblTransaction.Text = "Transaction";
             // 
@@ -339,48 +297,43 @@ namespace FuelStationApp.WUI {
             // 
             this.lblQuantity.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblQuantity.Appearance.Options.UseFont = true;
-            this.lblQuantity.Location = new System.Drawing.Point(507, 307);
-            this.lblQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblQuantity.Location = new System.Drawing.Point(435, 235);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(70, 23);
+            this.lblQuantity.Size = new System.Drawing.Size(57, 19);
             this.lblQuantity.TabIndex = 7;
             this.lblQuantity.Text = "Quantity:";
             // 
             // ctrlPBD
             // 
-            this.ctrlPBD.Location = new System.Drawing.Point(1018, 654);
-            this.ctrlPBD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlPBD.Location = new System.Drawing.Point(873, 500);
             this.ctrlPBD.Name = "ctrlPBD";
             this.ctrlPBD.Properties.ReadOnly = true;
-            this.ctrlPBD.Size = new System.Drawing.Size(117, 24);
+            this.ctrlPBD.Size = new System.Drawing.Size(100, 20);
             this.ctrlPBD.TabIndex = 8;
             // 
             // ctrlDiscount
             // 
-            this.ctrlDiscount.Location = new System.Drawing.Point(1018, 699);
-            this.ctrlDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlDiscount.Location = new System.Drawing.Point(873, 535);
             this.ctrlDiscount.Name = "ctrlDiscount";
             this.ctrlDiscount.Properties.ReadOnly = true;
-            this.ctrlDiscount.Size = new System.Drawing.Size(117, 24);
+            this.ctrlDiscount.Size = new System.Drawing.Size(100, 20);
             this.ctrlDiscount.TabIndex = 9;
             // 
             // ctrlTotalPrice
             // 
-            this.ctrlTotalPrice.Location = new System.Drawing.Point(1018, 748);
-            this.ctrlTotalPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlTotalPrice.Location = new System.Drawing.Point(873, 572);
             this.ctrlTotalPrice.Name = "ctrlTotalPrice";
             this.ctrlTotalPrice.Properties.ReadOnly = true;
-            this.ctrlTotalPrice.Size = new System.Drawing.Size(117, 24);
+            this.ctrlTotalPrice.Size = new System.Drawing.Size(100, 20);
             this.ctrlTotalPrice.TabIndex = 10;
             // 
             // lblPBD
             // 
             this.lblPBD.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblPBD.Appearance.Options.UseFont = true;
-            this.lblPBD.Location = new System.Drawing.Point(816, 653);
-            this.lblPBD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblPBD.Location = new System.Drawing.Point(699, 499);
             this.lblPBD.Name = "lblPBD";
-            this.lblPBD.Size = new System.Drawing.Size(167, 23);
+            this.lblPBD.Size = new System.Drawing.Size(133, 19);
             this.lblPBD.TabIndex = 11;
             this.lblPBD.Text = "Price Before Discount:";
             // 
@@ -388,10 +341,9 @@ namespace FuelStationApp.WUI {
             // 
             this.lblDiscount.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblDiscount.Appearance.Options.UseFont = true;
-            this.lblDiscount.Location = new System.Drawing.Point(888, 698);
-            this.lblDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblDiscount.Location = new System.Drawing.Point(761, 534);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(95, 23);
+            this.lblDiscount.Size = new System.Drawing.Size(76, 19);
             this.lblDiscount.TabIndex = 12;
             this.lblDiscount.Text = "Discount(%):";
             // 
@@ -399,20 +351,18 @@ namespace FuelStationApp.WUI {
             // 
             this.lblTotalPrice.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblTotalPrice.Appearance.Options.UseFont = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(899, 747);
-            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblTotalPrice.Location = new System.Drawing.Point(771, 571);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(84, 23);
+            this.lblTotalPrice.Size = new System.Drawing.Size(66, 19);
             this.lblTotalPrice.TabIndex = 13;
             this.lblTotalPrice.Text = "Total Price:";
             this.lblTotalPrice.Click += new System.EventHandler(this.labelControl3_Click);
             // 
             // ctrlCCN
             // 
-            this.ctrlCCN.Location = new System.Drawing.Point(234, 52);
-            this.ctrlCCN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ctrlCCN.Location = new System.Drawing.Point(201, 40);
             this.ctrlCCN.Name = "ctrlCCN";
-            this.ctrlCCN.Size = new System.Drawing.Size(117, 24);
+            this.ctrlCCN.Size = new System.Drawing.Size(100, 20);
             this.ctrlCCN.TabIndex = 14;
             this.ctrlCCN.EditValueChanged += new System.EventHandler(this.ctrlCCN_EditValueChanged);
             // 
@@ -420,10 +370,9 @@ namespace FuelStationApp.WUI {
             // 
             this.lblCCN.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblCCN.Appearance.Options.UseFont = true;
-            this.lblCCN.Location = new System.Drawing.Point(30, 51);
-            this.lblCCN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblCCN.Location = new System.Drawing.Point(26, 39);
             this.lblCCN.Name = "lblCCN";
-            this.lblCCN.Size = new System.Drawing.Size(187, 23);
+            this.lblCCN.Size = new System.Drawing.Size(150, 19);
             this.lblCCN.TabIndex = 15;
             this.lblCCN.Text = "Customer Card Number:";
             // 
@@ -433,19 +382,19 @@ namespace FuelStationApp.WUI {
             this.btnConfirm.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnConfirm.Appearance.Options.UseBackColor = true;
             this.btnConfirm.Appearance.Options.UseFont = true;
-            this.btnConfirm.Location = new System.Drawing.Point(372, 38);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConfirm.Location = new System.Drawing.Point(319, 29);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(98, 46);
+            this.btnConfirm.Size = new System.Drawing.Size(84, 35);
             this.btnConfirm.TabIndex = 16;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // ctrlQuantity
             // 
-            this.ctrlQuantity.Location = new System.Drawing.Point(591, 308);
+            this.ctrlQuantity.Location = new System.Drawing.Point(507, 236);
+            this.ctrlQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctrlQuantity.Name = "ctrlQuantity";
-            this.ctrlQuantity.Size = new System.Drawing.Size(125, 24);
+            this.ctrlQuantity.Size = new System.Drawing.Size(107, 20);
             this.ctrlQuantity.TabIndex = 17;
             // 
             // btnCalculate
@@ -454,10 +403,9 @@ namespace FuelStationApp.WUI {
             this.btnCalculate.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCalculate.Appearance.Options.UseBackColor = true;
             this.btnCalculate.Appearance.Options.UseFont = true;
-            this.btnCalculate.Location = new System.Drawing.Point(1180, 678);
-            this.btnCalculate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCalculate.Location = new System.Drawing.Point(1011, 518);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(199, 60);
+            this.btnCalculate.Size = new System.Drawing.Size(171, 46);
             this.btnCalculate.TabIndex = 18;
             this.btnCalculate.Text = "Calculate Total Price";
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -469,19 +417,18 @@ namespace FuelStationApp.WUI {
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(1294, 879);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(1172, 715);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(145, 45);
+            this.btnCancel.Size = new System.Drawing.Size(124, 34);
             this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AddTransactionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1451, 937);
+            this.ClientSize = new System.Drawing.Size(1307, 760);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.ctrlQuantity);
@@ -501,7 +448,6 @@ namespace FuelStationApp.WUI {
             this.Controls.Add(this.btQuantity);
             this.Controls.Add(this.gridControl3);
             this.Controls.Add(this.gridControl2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddTransactionForm";
             this.Text = "Add Transaction";
             this.Load += new System.EventHandler(this.AddTransaction_Load);
