@@ -103,7 +103,7 @@ namespace FuelStationApp.WUI {
                     Close();
                     break;
                 case EntityTypeEnum.Item:
-                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue.ToString().Replace(',','.'), textEdit5.EditValue.ToString().Replace(',', '.'));
+                    _MasterData.Tables[0].Rows.Add(Guid.NewGuid(), textEdit1.EditValue, textEdit2.EditValue, comboBoxEdit1.EditValue, textEdit4.EditValue.ToString().Replace('.', ','), textEdit5.EditValue.ToString().Replace('.', ','));
                     DialogResult = DialogResult.OK;
                     Close();
                     break;
@@ -124,7 +124,7 @@ namespace FuelStationApp.WUI {
                         decimal totalRent = 0m;
                         totalRent = days * rentPerDay;
 
-                        SqlDataAdapter adapter = new SqlDataAdapter($"SELECT SUM( CASE WHEN dateStart <= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', '{endDate}')) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, '{endDate}')) * (salary / 25) WHEN dateStart <= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', dateEnd)) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, dateEnd)) * (salary / 25) END) FROM Employee WHERE(DateStart <= '{endDate}' and DateEnd >= '{startDate}')", SqlConnectionAddForm);
+                        SqlDataAdapter adapter = new SqlDataAdapter($"SELECT SUM(CASE WHEN dateStart <= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', '{endDate}')) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd >= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, '{endDate}')) * (salary / 25) WHEN dateStart <= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, '{startDate}', dateEnd)) * (salary / 25) WHEN dateStart >= '{startDate}' AND dateEnd <= '{endDate}' THEN(1 + DATEDIFF(day, dateStart, dateEnd)) * (salary / 25) END) FROM Employee WHERE(DateStart <= '{endDate}' and DateEnd >= '{startDate}')", SqlConnectionAddForm);
                         DataTable employeeExpenses = new DataTable();
                         adapter.Fill(employeeExpenses);
 

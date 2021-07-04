@@ -68,7 +68,17 @@ namespace FuelStationApp {
                 return ResourceManager.GetString("AccountCredentialsSelect", resourceCulture);
             }
         }
-        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Username,[Password] FROM Accounts.
+        /// </summary>
+        internal static string EmployeeExpenses {
+            get {
+                return ResourceManager.GetString("EmployeeExpenses", resourceCulture);
+            }
+        }
+
+
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

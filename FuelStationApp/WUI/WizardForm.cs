@@ -102,5 +102,9 @@ namespace FuelStationApp.WUI {
         private void welcomeWizardPage1_Click(object sender, EventArgs e) {
 
         }
+
+        private void ctrlUsername_EditValueChanged(object sender, EventArgs e) {
+
+        }
     }
 }
