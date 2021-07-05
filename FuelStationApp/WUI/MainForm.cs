@@ -25,6 +25,7 @@ namespace FuelStationApp {
         public MainForm(SqlConnection sqlConnection) {
             _SqlConnection = sqlConnection;
             InitializeComponent();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -43,8 +44,11 @@ namespace FuelStationApp {
 
             if (gridTransactions.GetFocusedRowCellValue("ID") != null) {
                 transactionFocusedRow = gridTransactions.GetFocusedRowCellValue("ID").ToString();
-                gridControl1.MainView = gridTransactionLine;
+                //gridControl1.MainView = gridTransactionLine;
                 ribbonControl1.SelectedPage = actions;
+                GetTransactionLineData();
+               
+
             }
             else {
                 MessageBox.Show("Νo line selected");
@@ -255,14 +259,29 @@ namespace FuelStationApp {
                 MasterDataOld = new DataSet();
                 adapter.Fill(MasterData, "Items");
                 adapter.Fill(MasterDataOld, "Items");
+                
+                
 
-
-            }
+                }
             catch (Exception) {
                 MessageBox.Show("No Item Data for loading");
             }
+
+            foreach (DataRow row in MasterData.Tables["Items"].Rows) {
+                Int16 value = Convert.ToInt16(row[3]);
+                row[3] = ((ItemTypeEnum)value).ToString();
+               
+
+            }
+            foreach (DataRow row in MasterDataOld.Tables["Items"].Rows) {
+                Int16 value = Convert.ToInt16(row[3]);
+                row[3] = ((ItemTypeEnum)value).ToString();
+                
+
+            }
+
             gridControl1.MainView = gridItems;
-            gridControl1.DataSource = MasterData.Tables[0];
+            gridControl1.DataSource = MasterData.Tables["Items"];
         }
 
         private void AddItem() {
@@ -278,12 +297,8 @@ namespace FuelStationApp {
                 string itemType = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[3]);
 
                 string price = MasterData.Tables[0].Rows[initialLength].ItemArray[4].ToString().Replace(',', '.');
-                string cost =  MasterData.Tables[0].Rows[initialLength].ItemArray[5].ToString().Replace(',', '.');
-                MessageBox.Show(price.ToString());
-                MessageBox.Show(cost.ToString());
-                //string price = MasterData.Tables[0].Rows[initialLength].ItemArray[4].ToString().Replace(',', '.');
-                //string cost = MasterData.Tables[0].Rows[initialLength].ItemArray[5].ToString().Replace(',', '.');
-                SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO Items ([ID],[Code],[Description],[ItemType],[Price],[Cost]) VALUES ('{id}','{code}','{description}','{itemType}','{price}','{cost}')", _SqlConnection);
+                string cost = MasterData.Tables[0].Rows[initialLength].ItemArray[5].ToString().Replace(',', '.');
+                SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO Items ([ID],[Code],[Description],[ItemType],[Price],[Cost]) VALUES ('{id}','{code}','{description}','{itemType}',{price},{cost})", _SqlConnection);
 
                 adapter.Fill(MasterData);
             }
@@ -379,16 +394,16 @@ namespace FuelStationApp {
                 SqlDataAdapter adapter = new SqlDataAdapter($"SELECT [ID], [TransactionId], [ItemID], [Quantity], [ItemPrice], [Value] FROM [TransactionLine] WHERE TransactionId='{transactionFocusedRow}'", _SqlConnection);
 
                 MasterData = new DataSet();
-                MasterDataOld = new DataSet();
+                
                 adapter.Fill(MasterData, "TransactionLine");
-                adapter.Fill(MasterDataOld, "TransactionLine");
+                
 
             }
             catch (Exception) {
                 MessageBox.Show("No Transaction Line Data for loading");
             }
             gridControl1.MainView = gridTransactionLine;
-            gridControl1.DataSource = MasterData.Tables[0];
+            gridControl1.DataSource = MasterData.Tables["TransactionLine"];
         }
 
         //TODO: GetTransactionCustomerDetails
@@ -505,7 +520,19 @@ namespace FuelStationApp {
         private void ComposeQueryField(List<string> sqlLine, string columnName, object value) {
 
             switch (value.GetType().Name) {
-                case "String":
+                case "String": { 
+                    if ((string)value == "Fuel") {
+                            value = "0";
+                        }
+                    else if((string)value == "Product"){
+                            value = "1";
+                        }
+                    else if ((string)value == "Service") { 
+                            value = "2";
+                        }
+                        sqlLine.Add(string.Format("{0}='{1}'", columnName, value));
+                        break;
+                    }
                 case "Guid":
                     sqlLine.Add(string.Format("{0}='{1}'", columnName, value));
                     break;
@@ -528,9 +555,14 @@ namespace FuelStationApp {
                     sqlLine.Add(string.Format("{0}={1}", columnName, decimalPart));
                     break;
                 case "Int16":
+                    
+                    sqlLine.Add(string.Format("{0}={1}", columnName, Convert.ToInt16(value)));
+                    break;
+                case "ItemTypeEnum":
                     ItemTypeEnum enumVal = (ItemTypeEnum)value;
                     sqlLine.Add(string.Format("{0}={1}", columnName, Convert.ToInt16(enumVal)));
                     break;
+
             }
 
 
