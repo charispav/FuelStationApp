@@ -291,16 +291,40 @@ namespace FuelStationApp {
             addForm._MasterData = MasterData;
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.OK) {
+                string itemType = string.Empty;
                 Guid id = (Guid)MasterData.Tables[0].Rows[initialLength].ItemArray[0];
                 string code = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[1]);
                 string description = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[2]);
-                string itemType = Convert.ToString(MasterData.Tables[0].Rows[initialLength].ItemArray[3]);
 
+                switch (MasterData.Tables[0].Rows[initialLength].ItemArray[3]) {
+                    case "Fuel": 
+
+                             itemType = "0";
+                            break;
+                    case "Product":
+
+                        itemType = "1";
+                        break;
+                    case "Service":
+
+                        itemType = "2";
+                        break;
+
+
+                    default:
+                        break;
+                }
+
+             
+
+              
+                
                 string price = MasterData.Tables[0].Rows[initialLength].ItemArray[4].ToString().Replace(',', '.');
                 string cost = MasterData.Tables[0].Rows[initialLength].ItemArray[5].ToString().Replace(',', '.');
                 SqlDataAdapter adapter = new SqlDataAdapter($"INSERT INTO Items ([ID],[Code],[Description],[ItemType],[Price],[Cost]) VALUES ('{id}','{code}','{description}','{itemType}',{price},{cost})", _SqlConnection);
 
                 adapter.Fill(MasterData);
+                
             }
 
         }

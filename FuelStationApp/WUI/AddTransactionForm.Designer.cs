@@ -62,6 +62,8 @@ namespace FuelStationApp.WUI {
             this.ctrlQuantity = new DevExpress.XtraEditors.TextEdit();
             this.btnCalculate = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
@@ -96,6 +98,7 @@ namespace FuelStationApp.WUI {
             this.colPrice});
             this.gridView1.GridControl = this.gridControl2;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             // 
             // colID
             // 
@@ -168,6 +171,7 @@ namespace FuelStationApp.WUI {
             this.colDelete});
             this.gridView2.GridControl = this.gridControl3;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colCode2
             // 
@@ -262,11 +266,11 @@ namespace FuelStationApp.WUI {
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Appearance.BackColor = System.Drawing.Color.Purple;
+            this.btnOK.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnOK.Appearance.Options.UseBackColor = true;
             this.btnOK.Appearance.Options.UseFont = true;
-            this.btnOK.Location = new System.Drawing.Point(1043, 715);
+            this.btnOK.Location = new System.Drawing.Point(986, 587);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(124, 34);
             this.btnOK.TabIndex = 4;
@@ -305,7 +309,7 @@ namespace FuelStationApp.WUI {
             // 
             // ctrlPBD
             // 
-            this.ctrlPBD.Location = new System.Drawing.Point(873, 500);
+            this.ctrlPBD.Location = new System.Drawing.Point(240, 501);
             this.ctrlPBD.Name = "ctrlPBD";
             this.ctrlPBD.Properties.ReadOnly = true;
             this.ctrlPBD.Size = new System.Drawing.Size(100, 20);
@@ -313,7 +317,7 @@ namespace FuelStationApp.WUI {
             // 
             // ctrlDiscount
             // 
-            this.ctrlDiscount.Location = new System.Drawing.Point(873, 535);
+            this.ctrlDiscount.Location = new System.Drawing.Point(556, 501);
             this.ctrlDiscount.Name = "ctrlDiscount";
             this.ctrlDiscount.Properties.ReadOnly = true;
             this.ctrlDiscount.Size = new System.Drawing.Size(100, 20);
@@ -321,7 +325,7 @@ namespace FuelStationApp.WUI {
             // 
             // ctrlTotalPrice
             // 
-            this.ctrlTotalPrice.Location = new System.Drawing.Point(873, 572);
+            this.ctrlTotalPrice.Location = new System.Drawing.Point(849, 501);
             this.ctrlTotalPrice.Name = "ctrlTotalPrice";
             this.ctrlTotalPrice.Properties.ReadOnly = true;
             this.ctrlTotalPrice.Size = new System.Drawing.Size(100, 20);
@@ -331,7 +335,7 @@ namespace FuelStationApp.WUI {
             // 
             this.lblPBD.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblPBD.Appearance.Options.UseFont = true;
-            this.lblPBD.Location = new System.Drawing.Point(699, 499);
+            this.lblPBD.Location = new System.Drawing.Point(57, 502);
             this.lblPBD.Name = "lblPBD";
             this.lblPBD.Size = new System.Drawing.Size(133, 19);
             this.lblPBD.TabIndex = 11;
@@ -341,7 +345,7 @@ namespace FuelStationApp.WUI {
             // 
             this.lblDiscount.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblDiscount.Appearance.Options.UseFont = true;
-            this.lblDiscount.Location = new System.Drawing.Point(761, 534);
+            this.lblDiscount.Location = new System.Drawing.Point(404, 502);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(76, 19);
             this.lblDiscount.TabIndex = 12;
@@ -351,7 +355,7 @@ namespace FuelStationApp.WUI {
             // 
             this.lblTotalPrice.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lblTotalPrice.Appearance.Options.UseFont = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(771, 571);
+            this.lblTotalPrice.Location = new System.Drawing.Point(721, 500);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(66, 19);
             this.lblTotalPrice.TabIndex = 13;
@@ -399,11 +403,11 @@ namespace FuelStationApp.WUI {
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Appearance.BackColor = System.Drawing.Color.Purple;
+            this.btnCalculate.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCalculate.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCalculate.Appearance.Options.UseBackColor = true;
             this.btnCalculate.Appearance.Options.UseFont = true;
-            this.btnCalculate.Location = new System.Drawing.Point(1011, 518);
+            this.btnCalculate.Location = new System.Drawing.Point(1011, 486);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(171, 46);
             this.btnCalculate.TabIndex = 18;
@@ -413,25 +417,56 @@ namespace FuelStationApp.WUI {
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Appearance.BackColor = System.Drawing.Color.Purple;
+            this.btnCancel.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(1172, 715);
+            this.btnCancel.Location = new System.Drawing.Point(1115, 587);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 34);
             this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(507, 282);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(107, 41);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "Add Item(s)";
+            this.simpleButton1.Click += new System.EventHandler(this.btQuantity_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.Appearance.Options.UseForeColor = true;
+            this.simpleButton2.Location = new System.Drawing.Point(319, 30);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(84, 35);
+            this.simpleButton2.TabIndex = 16;
+            this.simpleButton2.Text = "Confirm";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // AddTransactionForm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 760);
+            this.ClientSize = new System.Drawing.Size(1250, 632);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.ctrlQuantity);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblCCN);
             this.Controls.Add(this.ctrlCCN);
@@ -444,6 +479,7 @@ namespace FuelStationApp.WUI {
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.lblTransaction);
             this.Controls.Add(this.lblChooseItem);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btQuantity);
             this.Controls.Add(this.gridControl3);
@@ -506,5 +542,7 @@ namespace FuelStationApp.WUI {
         private DevExpress.XtraEditors.TextEdit ctrlQuantity;
         private DevExpress.XtraEditors.SimpleButton btnCalculate;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

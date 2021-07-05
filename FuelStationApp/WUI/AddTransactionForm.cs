@@ -32,19 +32,23 @@ namespace FuelStationApp.WUI {
         }
 
         private void AddTransaction_Load(object sender, EventArgs e) {
-            gridControl2.Visible = false;
-            lblChooseItem.Visible = false;
+
+           
             gridControl2.DataSource = ItemData.Tables[0];
             TransactionID = Guid.NewGuid();
             TransactionDate = DateTime.Now.ToString("yyyyMMdd");
             DiscountPercentage = 0;
             TotalValue = 0;
-           
+         
+
+            gridControl2.Enabled = false;
 
         }
         public void GetTransactionCustomer() {
 
             try {
+               
+
                 cardNumber = Convert.ToInt32(ctrlCCN.EditValue);
 
                 CustomerData = new DataSet();
@@ -53,9 +57,10 @@ namespace FuelStationApp.WUI {
                 adapter.Fill(CustomerData);
                 CustomerID = (Guid)CustomerData.Tables[0].Rows[0].ItemArray[0];
 
-               
-                gridControl2.Visible = true;
-                lblChooseItem.Visible = true;
+                gridControl2.Enabled = true;
+
+
+
             }
             catch (Exception) {
                 MessageBox.Show("Customer not found");
@@ -67,9 +72,28 @@ namespace FuelStationApp.WUI {
 
             DataSet TransactionData1 = new DataSet();
 
-            SqlDataAdapter adapter1 = new SqlDataAdapter($"SELECT ID ,ItemType,TransactionID  FROM TransactionLine WHERE [ItemType]=0 AND TransactionID='{TransactionID}'", _SqlConnectionTrans);
+            SqlDataAdapter adapter1 = new SqlDataAdapter($"SELECT ID ,ItemType,TransactionID  FROM TransactionLine WHERE [ItemType]='0' AND TransactionID='{TransactionID}'", _SqlConnectionTrans);
             adapter1.Fill(TransactionData1);
-            string itemType = Convert.ToString(gridView1.GetFocusedRowCellValue("ItemType"));
+            string itemType = string.Empty;
+            switch (gridView1.GetFocusedRowCellValue("ItemType")) {
+                case "Fuel":
+
+                    itemType = "0";
+                    break;
+                case "Product":
+
+                    itemType = "1";
+                    break;
+                case "Service":
+
+                    itemType = "2";
+                    break;
+
+
+                default:
+                    break;
+            }
+           // string itemType = Convert.ToString(gridView1.GetFocusedRowCellValue("ItemType"));
             if ((TransactionData1.Tables[0].Rows.Count == 0 && itemType == "0") || itemType != "0") {
 
 
@@ -138,7 +162,7 @@ namespace FuelStationApp.WUI {
         }
 
         private void simpleButton1_Click(object sender, EventArgs e) {
-
+           
             GetTransactionCustomer();
         }
 
